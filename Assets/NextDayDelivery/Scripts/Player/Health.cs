@@ -12,10 +12,12 @@ public class Health : MonoBehaviour
     private float timeTillNextHeal;
     public float currentHealth;
     [SerializeField]
-    private Image image;
+    private GameObject canvas;
+    private RawImage image;
 
     private void Start()
     {
+        image = canvas.GetComponent<RawImage>();
         currentHealth = health;
     }
 
@@ -23,7 +25,7 @@ public class Health : MonoBehaviour
     private void Update()
     {
         CheckHealth();
-        if( timeTillNextHeal >= regenTime)
+        if ( timeTillNextHeal >= regenTime)
         {
             if(currentHealth < 100)
             {
@@ -50,18 +52,25 @@ public class Health : MonoBehaviour
         else if(currentHealth >= 0 & currentHealth <= 25)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, .7f);
+            image.transform.localScale = new Vector3(1, 1, 0);
+
         }
         else if (currentHealth > 25 & currentHealth <= 50)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, .5f);
+            image.transform.localScale = new Vector3(1.5f, 1.5f, 0);
+
         }
         else if (currentHealth > 50 & currentHealth <= 75)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, .2f);
+            image.transform.localScale = new Vector3(2, 2, 0);
+
         }
         else if (currentHealth > 75 & currentHealth <= 100)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+            image.transform.localScale = new Vector3(3, 3, 0);
         }
 
     }
