@@ -190,7 +190,6 @@ public class EnemyAI : MonoBehaviour
                 if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, layerMask))
                 {
                     health.currentHealth -= damage;
-                    Debug.Log("Player hit");
                 }
                 nextTimeToFire = Time.time + 1f / fireRate;
             }
