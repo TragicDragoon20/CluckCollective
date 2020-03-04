@@ -52,25 +52,25 @@ public class Health : MonoBehaviour
         else if(currentHealth >= 0 & currentHealth <= 25)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, .7f);
-            image.transform.localScale = new Vector3(1, 1, 0);
+            image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(1f, 1f, 0f), 20 * Time.deltaTime);
 
         }
         else if (currentHealth > 25 & currentHealth <= 50)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, .5f);
-            image.transform.localScale = new Vector3(1.5f, 1.5f, 0);
+            image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(1.5f, 1.5f, 0f), 20 * Time.deltaTime);
 
         }
         else if (currentHealth > 50 & currentHealth <= 75)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, .2f);
-            image.transform.localScale = new Vector3(2, 2, 0);
+            image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(2f, 2f, 0f), 20 * Time.deltaTime);
 
         }
         else if (currentHealth > 75 & currentHealth <= 100)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
-            image.transform.localScale = new Vector3(3, 3, 0);
+            image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(3f, 3f, 0f), 20 * Time.deltaTime);
         }
 
     }

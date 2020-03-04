@@ -95418,7 +95418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 343771729, guid: 24c62c118cfb02b45b1f38b147c380a8, type: 3}
       propertyPath: regenTime
-      value: 3
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 343771729, guid: 24c62c118cfb02b45b1f38b147c380a8, type: 3}
       propertyPath: canvas
