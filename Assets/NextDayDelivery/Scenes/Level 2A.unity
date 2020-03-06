@@ -38162,7 +38162,6 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh25420
-  m_Name: pb_Mesh192144
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -96188,12 +96187,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 343771729, guid: 24c62c118cfb02b45b1f38b147c380a8, type: 3}
       propertyPath: regenTime
-      value: 300
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 343771729, guid: 24c62c118cfb02b45b1f38b147c380a8, type: 3}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1221216826}
+    - target: {fileID: 343771729, guid: 24c62c118cfb02b45b1f38b147c380a8, type: 3}
+      propertyPath: postPro
+      value: 
+      objectReference: {fileID: 1387318700}
     - target: {fileID: 262354699801311870, guid: 24c62c118cfb02b45b1f38b147c380a8,
         type: 3}
       propertyPath: m_ForceIntoRT
