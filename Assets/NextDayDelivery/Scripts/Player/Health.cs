@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class Health : MonoBehaviour
 {
@@ -14,10 +15,15 @@ public class Health : MonoBehaviour
     [SerializeField]
     private GameObject canvas;
     private RawImage image;
+    [SerializeField]
+    private PostProcessVolume postPro;
+    private ChromaticAberration healthEffect;
 
     private void Start()
     {
         image = canvas.GetComponent<RawImage>();
+        postPro.profile.TryGetSettings(out healthEffect);
+        //healthEffect.intensity.value = 1;
         currentHealth = health;
     }
 
@@ -51,26 +57,29 @@ public class Health : MonoBehaviour
         }
         else if(currentHealth >= 0 & currentHealth <= 25)
         {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, .7f);
-            image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(1f, 1f, 0f), 20 * Time.deltaTime);
-
+            healthEffect.intensity.value = 1;
+            //image.color = new Color(image.color.r, image.color.g, image.color.b, .7f);
+            //image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(1f, 1f, 0f), 20 * Time.deltaTime);
         }
         else if (currentHealth > 25 & currentHealth <= 50)
         {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, .5f);
-            image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(1.5f, 1.5f, 0f), 20 * Time.deltaTime);
-
+            healthEffect.intensity.value = .7f;
+            //image.color = new Color(image.color.r, image.color.g, image.color.b, .5f);
+            //image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(1.5f, 1.5f, 0f), 20 * Time.deltaTime);
         }
         else if (currentHealth > 50 & currentHealth <= 75)
         {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, .2f);
-            image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(2f, 2f, 0f), 20 * Time.deltaTime);
+            healthEffect.intensity.value = .4f;
 
+            //image.color = new Color(image.color.r, image.color.g, image.color.b, .2f);
+            //image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(2f, 2f, 0f), 20 * Time.deltaTime);
         }
         else if (currentHealth > 75 & currentHealth <= 100)
         {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
-            image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(3f, 3f, 0f), 20 * Time.deltaTime);
+            healthEffect.intensity.value = 0f;
+
+            //image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+            //image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(3f, 3f, 0f), 20 * Time.deltaTime);
         }
 
     }
