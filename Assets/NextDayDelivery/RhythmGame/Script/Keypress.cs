@@ -6,17 +6,22 @@ using FMOD;
 
 public class Keypress : MonoBehaviour
 {
-    public GameObject hit;
     public string keyType;
-    private string[][] letterlayers = new string[][] { new[] { "z", "v", "m" },
-        new[] { "a", "f", "j", "l"},
+    private string[][] letterlayers = new string[][] { new[] { "z", "v", "m"},
+        new[] { "a", "f", "j", "l", " "},
         new[] { "q", "r", "u", "p"} };
+    public Sprite sprite;
 
     private void Start()
     {
         if (((IList)letterlayers[0]).Contains(keyType))
         {
-            transform.localPosition = new Vector2(0, -1);
+            transform.Translate(Vector2.down / 4);
+        }
+
+        if (((IList)letterlayers[2]).Contains(keyType))
+        {
+            transform.Translate(Vector2.up / 4);
         }
     }
 
@@ -25,6 +30,12 @@ public class Keypress : MonoBehaviour
         transform.Translate(-Vector3.right * Time.deltaTime / 2); //Moves each note left slowly
         TextMeshPro textmeshPro = GetComponent<TextMeshPro>(); //references the textmeshpro script attatched to the note
         textmeshPro.SetText(keyType); //sets the text attatched to textmesh pro as the key type, which is assigned in the spawner script
+
+        if (keyType == "space") //and if the input key is equal to the keytype
+        {
+            textmeshPro.fontSize = 5;
+            textmeshPro.SetText("¦");
+        }
     }
     void OnTriggerStay2D(Collider2D hit) //If the notes collide with a 2D collider
     {
@@ -33,7 +44,7 @@ public class Keypress : MonoBehaviour
             Destroy(gameObject); //destroy the note object
         }
 
-        if(hit.CompareTag("RhythmFail"))
+        if (hit.CompareTag("RhythmFail"))
         {
             Destroy(gameObject);
         }
