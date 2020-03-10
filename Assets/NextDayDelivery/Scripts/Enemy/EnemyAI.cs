@@ -6,6 +6,8 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField]
     protected GameObject player;
+    public ParticleSystem particleFire;
+    public ParticleSystem particleSmoke;
 
     [Header("Player Lost")]
     [SerializeField]
@@ -190,6 +192,8 @@ public class EnemyAI : MonoBehaviour
                 if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, layerMask))
                 {
                     health.currentHealth -= damage;
+                    particleSmoke.Play();
+                    particleFire.Play();
                 }
                 nextTimeToFire = Time.time + 1f / fireRate;
             }
