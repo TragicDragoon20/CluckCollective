@@ -12,7 +12,7 @@ public class CrateDeath : MonoBehaviour
 
     void Start()
     {
-        colliderSize = new Vector3(this.transform.localScale.x, this.transform.localScale.y + 4f, this.transform.localScale.z);
+        colliderSize = new Vector3(this.transform.localScale.x, this.transform.localScale.y + .5f, this.transform.localScale.z);
         rb = this.GetComponent<Rigidbody>();
     }
 
