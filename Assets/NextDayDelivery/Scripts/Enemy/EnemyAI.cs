@@ -6,8 +6,8 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField]
     protected GameObject player;
-    public ParticleSystem particleFire;
-    public ParticleSystem particleSmoke;
+    private ParticleSystem particleFire;
+    private ParticleSystem particleSmoke;
 
     [Header("Player Lost")]
     [SerializeField]
@@ -55,7 +55,9 @@ public class EnemyAI : MonoBehaviour
         fOVDetection = this.GetComponent<FOVDetection>();
         rb = this.gameObject.GetComponent<Rigidbody>();
         health = player.GetComponent<Health>();
-        
+        particleFire = this.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+        particleSmoke = this.gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+
     }
 
     private void Start()
