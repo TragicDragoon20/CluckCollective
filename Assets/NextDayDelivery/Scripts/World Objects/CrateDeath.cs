@@ -9,11 +9,13 @@ public class CrateDeath : MonoBehaviour
     private LayerMask layerMask;
     private Vector3 colliderSize;
     private Quaternion orientation = new Quaternion(0, 0, 0, 0);
+    private ParticleSystem explosion;
 
     void Start()
     {
         colliderSize = new Vector3(this.transform.localScale.x, this.transform.localScale.y + .5f, this.transform.localScale.z);
         rb = this.GetComponent<Rigidbody>();
+        explosion = this.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -33,7 +35,9 @@ public class CrateDeath : MonoBehaviour
         {
             if (overlaps[i] != null)
             {
+                explosion.transform.position = overlaps[i].transform.position;
                 Destroy(overlaps[i].gameObject);
+                explosion.Play();
                 Debug.Log("dead");
                 return true;
             }
