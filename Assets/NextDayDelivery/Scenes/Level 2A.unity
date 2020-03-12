@@ -7818,25 +7818,6 @@ Transform:
   m_Father: {fileID: 687068303}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &169600516 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 737200222141293661, guid: 4a2ab8c744261624c80b8a63a6b5cf7e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2029207793}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &169600520
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169600516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.26989532, y: 0.06438955, z: 0.4700239}
-  m_Center: {x: -0.016125277, y: 0.36329207, z: 0.000000019868214}
 --- !u!1001 &172465035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91837,6 +91818,9 @@ MonoBehaviour:
   freezeCam: {fileID: 1217684549}
   holding: 0
   inspecting: 0
+  fadeSpeed: 0.035
+  transparentAlpha: 0.5
+  solidAlpha: 1
   item: {fileID: 1787241858}
   tempParent: {fileID: 438476887748098982}
   throwForce: 600
