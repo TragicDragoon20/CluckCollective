@@ -27,13 +27,7 @@ public class Spawner : MonoBehaviour
         {
             note.GetComponent<Keypress>().keyType = (lvOne[(level)][i]); //Sets the keytype of the note to the current item in the array
             Instantiate(note, gameObject.transform); //instantiates each note
-            yield return new WaitForSeconds(1 / 2f); //Waits for a number of seconds
-
-            if (note.GetComponent<Keypress>().noteSpawnCounter == lvOne[(level)].Length)
-            {
-                    Debug.Log("congrats!");
-
-            }
+            yield return new WaitForSeconds(1 / 2f); //Waits for an amount
         }
     }
 }

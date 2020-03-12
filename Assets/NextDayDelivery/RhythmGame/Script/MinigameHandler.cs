@@ -7,7 +7,7 @@ public class MinigameHandler : MonoBehaviour
 {
     FMOD.Studio.EventInstance Audiooo;
     public GameObject minigame;
-    private Keypress fail;
+    private Fail fail;
     void Interact()
     {
         Instantiate(minigame, gameObject.transform);
@@ -17,7 +17,7 @@ public class MinigameHandler : MonoBehaviour
     }
     void Update()
     {
-        fail = GameObject.FindObjectOfType<Keypress>();
+        fail = GameObject.FindObjectOfType<Fail>();
         Audiooo.setParameterByName("Success Level", fail.failLevel);
         if (fail.failLevel == 0)
         {
