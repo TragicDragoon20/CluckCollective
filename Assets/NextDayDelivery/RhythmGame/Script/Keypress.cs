@@ -5,6 +5,8 @@ using TMPro;
 
 public class Keypress : MonoBehaviour
 {
+    public int noteSpawnCounter = 0;
+    public int failLevel = 4;
     public string keyType;
     private string[][] letterlayers = new string[][] { new[] { "z", "v", "m"},
         new[] { "a", "f", "j", "l", " "},
@@ -40,11 +42,16 @@ public class Keypress : MonoBehaviour
     {
         if (Input.GetKey(keyType)) //and if the input key is equal to the keytype
         {
+            noteSpawnCounter += 1;
+            Debug.Log(noteSpawnCounter);
             Destroy(gameObject); //destroy the note object
         }
 
         if (hit.CompareTag("RhythmFail"))
         {
+            failLevel = failLevel - 1;
+            noteSpawnCounter += 1;
+            Debug.Log(failLevel);
             Destroy(gameObject);
         }
     }
