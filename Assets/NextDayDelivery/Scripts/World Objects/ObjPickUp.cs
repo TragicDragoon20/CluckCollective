@@ -15,6 +15,9 @@ public class ObjPickUp : MonoBehaviour
     private bool holding = false;
     [SerializeField]
     private bool inspecting = false;
+    public float fadeSpeed = 0.035f;
+    public float transparentAlpha = 0.5f;
+    public float solidAlpha = 1f;
 
     [Header("Object References")]
     [SerializeField]
@@ -106,7 +109,7 @@ public class ObjPickUp : MonoBehaviour
         //As long as its not being inspected. 
         if (!inspecting)
         {
-            item.GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 0.5f);
+            StartCoroutine(FadeColour(this.gameObject, fadeSpeed, transparentAlpha));
         }
 
         item.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -127,6 +130,27 @@ public class ObjPickUp : MonoBehaviour
         {
             item.transform.localRotation = Quaternion.Euler(170, 0, 0); 
         }
+    }
+
+    //Changes the colour of the object over time to make it transparent/solid.
+    private IEnumerator FadeColour(GameObject worldObject, float speed, float alphaTarget)
+    {
+        Color currentColour = worldObject.GetComponent<Renderer>().material.color;
+
+        float t = 0;
+        while (t < 1)
+        {
+            t += speed;
+
+            float alpha = currentColour.a;
+            currentColour.a = Mathf.Lerp(alpha, alphaTarget, t);
+
+            worldObject.GetComponent<Renderer>().material.color = currentColour;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield return null;
     }
 
     //Throws player held item.
@@ -152,8 +176,7 @@ public class ObjPickUp : MonoBehaviour
         item.transform.position = objectPos;
 
         //Returns object to full colour.
-        //Only works with Red at the moment.
-        item.GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 1f);
+        StartCoroutine(FadeColour(this.gameObject, fadeSpeed, solidAlpha));
     }
 
     //Allows the player to rotate the held object.
@@ -168,7 +191,7 @@ public class ObjPickUp : MonoBehaviour
             item.transform.localPosition = new Vector3(0, 0.5f, 1.5f);
 
             //Reverts to full colour for inspection.
-            item.GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 1f);
+            StartCoroutine(FadeColour(this.gameObject, fadeSpeed, solidAlpha));
         }
 
         //Unfreezes the camera so the player can look around again.
