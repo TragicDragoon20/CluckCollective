@@ -171,6 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcdaf81379c4db438f271dbca538ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroy: 0
+  counter: 0
+  fail: 4
   note: {fileID: 4329771301649631132, guid: e8d4608e29004a84ea6017bddb9dcfcc, type: 3}
   level: 0
 --- !u!1 &8981002459647080116
@@ -185,7 +188,6 @@ GameObject:
   - component: {fileID: 8981002459647080119}
   - component: {fileID: 8981002459647080118}
   - component: {fileID: 8981002459647080117}
-  - component: {fileID: 8981002459647080121}
   m_Layer: 0
   m_Name: Fail
   m_TagString: RhythmFail
@@ -302,19 +304,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8981002459647080121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8981002459647080116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1abf8691ec40846a0893e7a79e5166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  failLevel: 4
 --- !u!1 &8981002459650884094
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8981002459650884095}
+  - component: {fileID: 5581177413412727379}
   m_Layer: 0
   m_Name: Hacking Minigame
   m_TagString: Untagged
@@ -348,3 +338,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5581177413412727379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8981002459650884094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc199693e0355643b499237487955c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

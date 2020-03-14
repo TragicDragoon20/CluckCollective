@@ -9,7 +9,6 @@ public class Keypress : MonoBehaviour
     private string[][] letterlayers = new string[][] { new[] { "z", "v", "m"},
         new[] { "a", "f", "j", "l", " "},
         new[] { "q", "r", "u", "p"} };
-    public Sprite sprite;
 
     private void Start()
     {
@@ -40,11 +39,14 @@ public class Keypress : MonoBehaviour
     {
         if (Input.GetKey(keyType)) //and if the input key is equal to the keytype
         {
+            this.GetComponentInParent<Spawner>().counter++;
             Destroy(gameObject); //destroy the note object
         }
 
         if (hit.CompareTag("RhythmFail"))
         {
+            this.GetComponentInParent<Spawner>().counter++;
+            this.GetComponentInParent<Spawner>().fail--;
             Destroy(gameObject);
         }
     }
