@@ -10,24 +10,30 @@ public class Spawner : MonoBehaviour
     public int counter = 0;
     public int fail = 4;
     public GameObject note;
-    private string[][] lvOne = new string[][] { new[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p" },
+    private string[][] levels = new string[][] { new[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p" },
         new[] { "s", "h", "r", "e", "k", },
         new[] { "s", "h", "r", "e", "k", "2" },
         new[] { "s", "h", "r", "e", "k", "3" },
         new[] { "s", "h", "r", "e", "k", "4" } }; //A multidimentional string array that's output by the spawner. The new[] before each array allows them to be of any length.
+
+    private float[][] levelTimes = new float[][] { new[] {4f,7,2,3,3,4,4,4,2,2,3},
+        new[] {5,2,1,7,5f},
+        new[] {5,2,1,7,5f},
+        new[] {5,2,1,7,5f},
+        new[] {5,2,1,7,5f} };
     public int level; //Must be replaced with an int that actually represents the level number
 
     void Awake()
     {
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
         Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-        Audiooo.start();
         Audiooo.setParameterByName("Section", 2);
+        Audiooo.start();
+        Audiooo.setPaused(true);
     }
 
     void Update()
     {
-        UnityEngine.Debug.Log(counter);
         Audiooo.setParameterByName("Success Level", fail);
         if (fail == 0)
         {
@@ -35,7 +41,7 @@ public class Spawner : MonoBehaviour
             destroy = true;
         }
 
-        if (counter == lvOne[(level)].Length)
+        if (counter == levels[(level)].Length)
         {
             Debug.Log("Congrats!");
             destroy = true;
@@ -44,11 +50,20 @@ public class Spawner : MonoBehaviour
 
     IEnumerator LevelTiming() //Lanuches a time sensitive function
     {
-        for (int i = 0; i < lvOne[(level)].Length; i++) // for each item in the chosen level
+        for (int i = 0; i < levels[(level)].Length; i++) // for each item in the chosen level
         {
-            note.GetComponent<Keypress>().keyType = (lvOne[(level)][i]); //Sets the keytype of the note to the current item in the array
+            if(counter == 0)
+            {
+                levelTimes[level][i] *= 0.1f;
+            }
+            if (counter == 1)
+            {
+                Audiooo.setPaused(false);
+            }
+            Debug.Log(levelTimes[level][i]);
+            note.GetComponent<Keypress>().keyType = (levels[level][i]); //Sets the keytype of the note to the current item in the array
             Instantiate(note, gameObject.transform); //instantiates each note
-            yield return new WaitForSeconds(1 / 2f); //Waits for an amount
+            yield return new WaitForSeconds(levelTimes[level][i]); //Waits for an amount of time specified by the time array and divides it by 10, to allow much quicker times to be allowed.
         }
     }
 }
