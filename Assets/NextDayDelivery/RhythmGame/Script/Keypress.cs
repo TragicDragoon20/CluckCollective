@@ -35,17 +35,20 @@ public class Keypress : MonoBehaviour
             textmeshPro.SetText("¦");
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        this.GetComponentInParent<Spawner>().counter++;
+    }
     void OnTriggerStay2D(Collider2D hit) //If the notes collide with a 2D collider
     {
         if (Input.GetKey(keyType)) //and if the input key is equal to the keytype
         {
-            this.GetComponentInParent<Spawner>().counter++;
             Destroy(gameObject); //destroy the note object
         }
 
         if (hit.CompareTag("RhythmFail"))
         {
-            this.GetComponentInParent<Spawner>().counter++;
             this.GetComponentInParent<Spawner>().fail--;
             Destroy(gameObject);
         }

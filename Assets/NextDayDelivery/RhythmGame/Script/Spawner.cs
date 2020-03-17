@@ -6,7 +6,6 @@ using TMPro;
 public class Spawner : MonoBehaviour
 {
     FMOD.Studio.EventInstance Audiooo;
-    public bool destroy = false;
     public int counter = 0;
     public int fail = 4;
     public GameObject note;
@@ -16,7 +15,7 @@ public class Spawner : MonoBehaviour
         new[] { "s", "h", "r", "e", "k", "3" },
         new[] { "s", "h", "r", "e", "k", "4" } }; //A multidimentional string array that's output by the spawner. The new[] before each array allows them to be of any length.
 
-    private float[][] levelTimes = new float[][] { new[] {4f,7,2,3,3,4,4,4,2,2,3},
+    private float[][] levelTimes = new float[][] { new[] {3f,7,2,3,3,4,4,4,3,3,4},
         new[] {5,2,1,7,5f},
         new[] {5,2,1,7,5f},
         new[] {5,2,1,7,5f},
@@ -38,13 +37,14 @@ public class Spawner : MonoBehaviour
         if (fail == 0)
         {
             Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            destroy = true;
+            this.GetComponentInParent<MinigameHandler>().destroy = true;
         }
 
         if (counter == levels[(level)].Length)
         {
+            Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             Debug.Log("Congrats!");
-            destroy = true;
+            this.GetComponentInParent<MinigameHandler>().destroy = true;
         }
     }
 
@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < levels[(level)].Length; i++) // for each item in the chosen level
         {
-            if(counter == 0)
+            if(counter >= 0)
             {
                 levelTimes[level][i] *= 0.1f;
             }

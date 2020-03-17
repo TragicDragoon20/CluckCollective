@@ -5,10 +5,25 @@ using FMOD;
 
 public class MinigameHandler : MonoBehaviour
 {
+    public bool destroy = false;
+    private int spawnTotal = 0;
     public GameObject minigame;
+    private GameObject test;
     void Interact()
     {
-        Instantiate(minigame, gameObject.transform);
+        spawnTotal += 1;
+        if (spawnTotal == 1)
+        {
+            test = (GameObject)Instantiate(minigame, gameObject.transform);
+        }
     }
 
+    void Update()
+    {
+        if(destroy == true)
+        {
+            Destroy(test);
+            spawnTotal = 0;
+        }
+    }
 }
