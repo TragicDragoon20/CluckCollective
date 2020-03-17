@@ -6,7 +6,9 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField]
     protected GameObject player;
+    [SerializeField]
     protected ParticleSystem particleFire;
+    [SerializeField]
     protected ParticleSystem particleSmoke;
 
     [Header("Player Lost")]
