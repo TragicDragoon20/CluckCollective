@@ -30,11 +30,6 @@ public class ObjPickUp : MonoBehaviour
     private float throwForce;
     public bool wasThrown = false;
 
-    [Header("Temporary")]
-    public GameObject key;
-    public DoorRegular door;
-    public GameObject uielement;
-
     public void Interact()
     {
         Debug.Log("Interacted");
@@ -44,15 +39,6 @@ public class ObjPickUp : MonoBehaviour
         {
             holding = true;
             item.GetComponent<Rigidbody>().useGravity = false;
-
-            //Checks to see if the object is a key, unlocks the door, and then sets item active state to false.
-            if (item.gameObject == key)
-            {
-                uielement.SetActive(true);
-                Debug.Log("UNLOCKED");
-                door.Locked = false;
-                item.gameObject.SetActive(false);
-            }
         }
 
         //Drops the item if it is currently held.
