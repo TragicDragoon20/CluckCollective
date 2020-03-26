@@ -14,18 +14,18 @@ public class Keypress : MonoBehaviour
     {
         if (((IList)letterlayers[0]).Contains(keyType))
         {
-            transform.Translate(Vector2.down / 4);
+            transform.Translate(Vector2.down / 2);
         }
 
         if (((IList)letterlayers[2]).Contains(keyType))
         {
-            transform.Translate(Vector2.up / 4);
+            transform.Translate(Vector2.up / 2);
         }
     }
 
     void Update()
     {
-        transform.Translate(-Vector3.right * Time.deltaTime / 2); //Moves each note left slowly
+        transform.Translate(-Vector3.right * Time.deltaTime); //Moves each note left slowly
         TextMeshPro textmeshPro = GetComponent<TextMeshPro>(); //references the textmeshpro script attatched to the note
         textmeshPro.SetText(keyType); //sets the text attatched to textmesh pro as the key type, which is assigned in the spawner script
 

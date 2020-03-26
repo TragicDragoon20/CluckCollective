@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
         new[] { "s", "h", "r", "e", "k", "3" },
         new[] { "s", "h", "r", "e", "k", "4" } }; //A multidimentional string array that's output by the spawner. The new[] before each array allows them to be of any length.
 
-    private float[][] levelTimes = new float[][] { new[] {3f,7,2,3,3,3,3,2,2,3,9}, //Each number in this array represents the amount of time between each note. Each number is in seconds /10 - so 3 is 0.3 seconds.
+    private float[][] levelTimes = new float[][] { new[] {3f,7,2,3,3,3,2,2,2,3,9}, //Each number in this array represents the amount of time between each note. Each number is in seconds /10 - so 3 is 0.3 seconds.
         new[] {5,2,1,7,5f},
         new[] {5,2,1,7,5f},
         new[] {5,2,1,7,5f},
@@ -46,6 +46,7 @@ public class Spawner : MonoBehaviour
             Debug.Log("Congrats!");
             this.GetComponentInParent<MinigameHandler>().destroy = true;
         }
+        Debug.Log(counter);
     }
 
     IEnumerator LevelTiming() //Lanuches a time sensitive function
@@ -60,10 +61,9 @@ public class Spawner : MonoBehaviour
             {
                 Audiooo.setPaused(false);
             }
-            Debug.Log(levelTimes[level][i]);
             note.GetComponent<Keypress>().keyType = (levels[level][i]); //Sets the keytype of the note to the current item in the array
             Instantiate(note, gameObject.transform); //instantiates each note
-            yield return new WaitForSeconds(levelTimes[level][i]); //Waits for an amount of time specified by the time array and divides it by 10, to allow much quicker times to be allowed.
+            yield return new WaitForSeconds(levelTimes[level][i]); //Waits for an amount of time before spawing the next note specified by the time array and divides it by 10, to allow much quicker times to be allowed.
         }
     }
 }
