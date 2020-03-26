@@ -17,11 +17,20 @@ public class EmitSound : MonoBehaviour
     private FOVDetection fOVDetection;
     private ObjPickUp objPickUp;
 
+    private SpriteRenderer sprite;
+    [SerializeField]
+    private float timer = 0;
+
+    private IEnumerable coroutine;
 
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
         objPickUp = this.gameObject.GetComponent<ObjPickUp>();
+        sprite = this.GetComponentInChildren<SpriteRenderer>();
+        sprite.enabled = false;
+        coroutine = DisplaySound(3f);
+
     }
     private void FixedUpdate()
     {
@@ -31,9 +40,12 @@ public class EmitSound : MonoBehaviour
     {
         if (objPickUp.wasThrown)
         {
-            if (velocity.y < 1f)
+            if (velocity.z < 1 )
             {
+                StartCoroutine("DisplaySound", 2f);
                 origin = this.transform.position;
+                this.transform.rotation = new Quaternion(this.transform.rotation.x, 0, this.transform.rotation.z, 0);
+                
 
 
                 Collider[] hits = Physics.OverlapSphere(origin, sphereRadius, layerMask, QueryTriggerInteraction.UseGlobal);
@@ -50,13 +62,25 @@ public class EmitSound : MonoBehaviour
                             fOVDetection.playerLastKnownPos = origin;
                             fOVDetection.playerLastKnownPos.y += 1;
                             enemy.state = EnemyAI.State.Sound;
+                            objPickUp.wasThrown = false;
                         }
                         
                     }
                     i++;
                 }
             }
+            
+            
         }
         
+    }
+
+    private IEnumerable DisplaySound(float waitTime)
+    {
+        Debug.Log("Started");
+        sprite.enabled = true;
+        yield return new WaitForSeconds(waitTime);
+        sprite.enabled = false;
+        Debug.Log("Done");
     }
 }
