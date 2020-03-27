@@ -21,7 +21,7 @@ public class EmitSound : MonoBehaviour
     [SerializeField]
     private float timer = 0;
 
-    private IEnumerable coroutine;
+    private IEnumerator coroutine;
 
     private void Awake()
     {
@@ -42,7 +42,7 @@ public class EmitSound : MonoBehaviour
         {
             if (velocity.z < 1 )
             {
-                StartCoroutine("DisplaySound", 2f);
+                StartCoroutine(coroutine);
                 origin = this.transform.position;
                 this.transform.rotation = new Quaternion(this.transform.rotation.x, 0, this.transform.rotation.z, 0);
                 
@@ -75,7 +75,7 @@ public class EmitSound : MonoBehaviour
         
     }
 
-    private IEnumerable DisplaySound(float waitTime)
+    private IEnumerator DisplaySound(float waitTime)
     {
         Debug.Log("Started");
         sprite.enabled = true;
