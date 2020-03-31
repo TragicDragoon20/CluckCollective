@@ -17,19 +17,15 @@ public class EmitSound : MonoBehaviour
     private FOVDetection fOVDetection;
     private ObjPickUp objPickUp;
 
-    private SpriteRenderer sprite;
     [SerializeField]
     private float timer = 0;
-
-    private IEnumerator coroutine;
+    private ParticleSystem ripple;
 
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
         objPickUp = this.gameObject.GetComponent<ObjPickUp>();
-        sprite = this.GetComponentInChildren<SpriteRenderer>();
-        sprite.enabled = false;
-        coroutine = DisplaySound(3f);
+        ripple = gameObject.GetComponentInChildren<ParticleSystem>();
 
     }
     private void FixedUpdate()
@@ -42,7 +38,7 @@ public class EmitSound : MonoBehaviour
         {
             if (velocity.z < 1 )
             {
-                StartCoroutine(coroutine);
+                ripple.Play();
                 origin = this.transform.position;
                 this.transform.rotation = new Quaternion(this.transform.rotation.x, 0, this.transform.rotation.z, 0);
                 
@@ -73,14 +69,5 @@ public class EmitSound : MonoBehaviour
             
         }
         
-    }
-
-    private IEnumerator DisplaySound(float waitTime)
-    {
-        Debug.Log("Started");
-        sprite.enabled = true;
-        yield return new WaitForSeconds(waitTime);
-        sprite.enabled = false;
-        Debug.Log("Done");
     }
 }
