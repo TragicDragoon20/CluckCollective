@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using FMOD;
 
 public class Spawner : MonoBehaviour
 {
     FMOD.Studio.EventInstance Audiooo;
+    public bool destroy = false;
     public int counter = 0;
     public int fail = 4;
     public GameObject note;
@@ -26,6 +28,7 @@ public class Spawner : MonoBehaviour
     {
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
         Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
+        FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
         Audiooo.setParameterByName("Section", 2);
         Audiooo.start();
         Audiooo.setPaused(true);
@@ -37,16 +40,17 @@ public class Spawner : MonoBehaviour
         if (fail == 0)
         {
             Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            this.GetComponentInParent<MinigameHandler>().destroy = true;
+            Audiooo.release();
+            destroy = true;
         }
 
         if (counter == levels[(level)].Length)
         {
             Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            Debug.Log("Congrats!");
-            this.GetComponentInParent<MinigameHandler>().destroy = true;
+            Audiooo.release();
+            UnityEngine.Debug.Log("Congrats!");
+            destroy = true;
         }
-        Debug.Log(counter);
     }
 
     IEnumerator LevelTiming() //Lanuches a time sensitive function

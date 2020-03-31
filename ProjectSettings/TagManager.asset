@@ -7,6 +7,7 @@ TagManager:
   - Hold
   - floor
   - RhythmFail
+  - RhythmHandler
   layers:
   - Default
   - TransparentFX

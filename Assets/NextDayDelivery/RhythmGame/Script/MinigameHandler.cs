@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FMOD;
 
 public class MinigameHandler : MonoBehaviour
 {
     private Vector3 angles;
     private Camera minigameCam;
-    public bool destroy = false;
     private int spawnTotal = 0;
     public GameObject minigame;
     private GameObject test;
@@ -21,19 +19,27 @@ public class MinigameHandler : MonoBehaviour
         spawnTotal += 1;
         if (spawnTotal == 1)
         {
-            test = (GameObject)Instantiate(minigame, MGLocation, Quaternion.Euler(angles));
-            minigameCam = minigame.transform.Find("Camera").GetComponent<Camera>();
-            minigameCam.enabled = true;
+            test = (GameObject)Instantiate(minigame, MGLocation, Quaternion.Euler(angles), gameObject.transform);
+            minigameCam = test.transform.Find("Camera").GetComponent<Camera>();
+            spawnTotal += 1;
         }
     }
 
     void Update()
     {
-        if(destroy == true)
+        Debug.Log(spawnTotal);
+        if (test != null)
         {
-            minigameCam.enabled = false;
-            Destroy(test);
-            spawnTotal = 0;
+            if (minigameCam.enabled != true)
+            {
+                minigameCam.enabled = true;
+            }
+            if (test.GetComponentInChildren<Spawner>().destroy == true)
+            {
+                spawnTotal = 0;
+                minigameCam.enabled = false;
+                Destroy(test);
+            }
         }
     }
 }
