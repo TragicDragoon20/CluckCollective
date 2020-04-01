@@ -19,7 +19,7 @@ public class MinigameHandler : MonoBehaviour
         spawnTotal += 1;
         if (spawnTotal == 1)
         {
-            test = (GameObject)Instantiate(minigame, MGLocation, Quaternion.Euler(angles), gameObject.transform);
+            test = (GameObject)Instantiate(minigame, MGLocation, Quaternion.Euler(angles));
             minigameCam = test.transform.Find("Camera").GetComponent<Camera>();
             spawnTotal += 1;
         }
@@ -36,6 +36,7 @@ public class MinigameHandler : MonoBehaviour
             }
             if (test.GetComponentInChildren<Spawner>().destroy == true)
             {
+                test.GetComponentInChildren<Spawner>().destroy = false;
                 spawnTotal = 0;
                 minigameCam.enabled = false;
                 Destroy(test);

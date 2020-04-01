@@ -28,8 +28,7 @@ public class Spawner : MonoBehaviour
     {
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
         Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-        FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-        Audiooo.setParameterByName("Section", 2);
+        Audiooo.setParameterByName("Section", 20);
         Audiooo.start();
         Audiooo.setPaused(true);
     }
