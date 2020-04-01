@@ -10,7 +10,7 @@ public class MinigameHandler : MonoBehaviour
     public GameObject minigame;
     private GameObject test;
     Vector3 MGLocation;
-    void Interact()
+    void Start()
     {
         Vector3 newRotate = new Vector3(0, 180, 0);
         angles = transform.rotation.eulerAngles;

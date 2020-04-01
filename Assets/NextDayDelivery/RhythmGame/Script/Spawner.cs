@@ -26,9 +26,10 @@ public class Spawner : MonoBehaviour
 
     void Awake()
     {
+        level = GetComponent<MenuHandler>().levelNo;
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
         Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-        Audiooo.setParameterByName("Section", 20);
+        Audiooo.setParameterByName("Section", level);
         Audiooo.start();
         Audiooo.setPaused(true);
     }
