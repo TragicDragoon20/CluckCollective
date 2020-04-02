@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-public class MenuCreator : MonoBehaviour
+public class StartGame : MonoBehaviour
 {
     public Canvas menu;
-    // Start is called before the first frame update
     void Interact()
     {
         Camera.main.GetComponent<MouseLook>().enabled = false;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         Instantiate(menu);
     }
 }

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class MinigameHandler : MonoBehaviour
 {
+    public int test;
+    public GameObject localMG;
     private Vector3 angles;
     private Camera minigameCam;
-    private int spawnTotal = 0;
     public GameObject minigame;
-    private GameObject test;
+    public int spawnTotal = 1;
+
     Vector3 MGLocation;
-    void Start()
+
+    void Awake()
     {
         Vector3 newRotate = new Vector3(0, 180, 0);
         angles = transform.rotation.eulerAngles;
@@ -19,27 +22,27 @@ public class MinigameHandler : MonoBehaviour
         spawnTotal += 1;
         if (spawnTotal == 1)
         {
-            test = (GameObject)Instantiate(minigame, MGLocation, Quaternion.Euler(angles));
-            minigameCam = test.transform.Find("Camera").GetComponent<Camera>();
-            spawnTotal += 1;
+            localMG = (GameObject)Instantiate(minigame, MGLocation, Quaternion.Euler(angles));
+            minigameCam = localMG.transform.Find("Camera").GetComponent<Camera>();
+            spawnTotal = 2;
         }
     }
 
     void Update()
     {
-        Debug.Log(spawnTotal);
-        if (test != null)
+        test = localMG.GetComponentInChildren<Spawner>().level;
+        if (localMG != null)
         {
             if (minigameCam.enabled != true)
             {
                 minigameCam.enabled = true;
             }
-            if (test.GetComponentInChildren<Spawner>().destroy == true)
+            if (localMG.GetComponentInChildren<Spawner>().destroy == true)
             {
-                test.GetComponentInChildren<Spawner>().destroy = false;
+                localMG.GetComponentInChildren<Spawner>().destroy = false;
                 spawnTotal = 0;
                 minigameCam.enabled = false;
-                Destroy(test);
+                Destroy(localMG);
             }
         }
     }
