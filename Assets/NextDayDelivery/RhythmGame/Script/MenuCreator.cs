@@ -9,6 +9,8 @@ public class MenuCreator : MonoBehaviour
     // Start is called before the first frame update
     void Interact()
     {
+        Camera.main.GetComponent<MouseLook>().enabled = false;
+        Cursor.visible = true;
         Instantiate(menu);
     }
 }
