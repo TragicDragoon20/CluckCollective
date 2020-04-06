@@ -4,18 +4,19 @@ using UnityEngine;
 using TMPro;
 using FMOD;
 using System;
+using UnityEditor;
 
 public class Spawner : MonoBehaviour
 {
     FMOD.Studio.EventInstance Audiooo;
-    private int level;
+    public int level;
     public bool destroy = false;
     public int counter = 0;
     public int fail = 4;
     public GameObject note;
     private string[][] levels = new string[][] { new[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p" },
         new[] { "s", "h", "r", "e", "k", },
-        new[] { "s", "h", "r", "e", "k", "2" },
+        new[] { "2", "h", "r", "e", "k", "2" },
         new[] { "s", "h", "r", "e", "k", "3" },
         new[] { "s", "h", "r", "e", "k", "4" } }; //A multidimentional string array that's output by the spawner. The new[] before each array allows them to be of any length.
 
@@ -25,16 +26,12 @@ public class Spawner : MonoBehaviour
         new[] {5,2,1,7,5f},
         new[] {5,2,1,7,5f} };
 
-    public virtual void SetLevel()
-    {
-        level = Convert.ToInt32(gameObject.name);
-    }
-
     void Awake()
     {
+
+        level = GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuHandler>().e;
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
         Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-
         Audiooo.setParameterByName("Section", level);
         Audiooo.start();
         Audiooo.setPaused(true);
@@ -42,7 +39,6 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-
         Audiooo.setParameterByName("Success Level", fail);
         if (fail == 0)
         {
@@ -55,7 +51,7 @@ public class Spawner : MonoBehaviour
         {
             Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             Audiooo.release();
-            UnityEngine.Debug.Log("Congrats!");
+            UnityEngine.Debug.Log("Congrats!"); //here use varying effects based off of the level value. EG if you beat level 1, then effect no 1 will happen which should be opening the door. Maybe create a nested array of effects like the level and timing arrays?
             destroy = true;
         }
     }

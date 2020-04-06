@@ -4,6 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - shittyhole: {fileID: 4760307703022376875, guid: 9daa477d35d8cfd438ef787197d64a66,
+      type: 3}
   - minigameHandler: {fileID: 371910840530147014, guid: ac21233dd2207d749a6e0bccc793ed54,
       type: 3}
   executionOrder: 0

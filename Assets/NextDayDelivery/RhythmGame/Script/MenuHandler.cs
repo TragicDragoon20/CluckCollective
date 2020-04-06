@@ -1,22 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class MenuHandler : Spawner
+public class MenuHandler : MonoBehaviour
 {
-    public GameObject minigameHandler;
-    public int startSpawning = 0;
-    public int level;
-
-    public override void SetLevel()
-    {
-        base.SetLevel();
-    }
-
-    public void CreateMinigame()
-    {
-        SetLevel();
-        Instantiate(minigameHandler);
-    }
+    public int e;
 }
