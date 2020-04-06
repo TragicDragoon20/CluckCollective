@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using FMOD;
+using System;
 
 public class Spawner : MonoBehaviour
 {
     FMOD.Studio.EventInstance Audiooo;
+    private int level;
     public bool destroy = false;
     public int counter = 0;
     public int fail = 4;
@@ -22,12 +24,17 @@ public class Spawner : MonoBehaviour
         new[] {5,2,1,7,5f},
         new[] {5,2,1,7,5f},
         new[] {5,2,1,7,5f} };
-    public int level; //Must be replaced with an int that actually represents the level number
+
+    public virtual void SetLevel()
+    {
+        level = Convert.ToInt32(gameObject.name);
+    }
 
     void Awake()
     {
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
         Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
+
         Audiooo.setParameterByName("Section", level);
         Audiooo.start();
         Audiooo.setPaused(true);
@@ -35,6 +42,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
+
         Audiooo.setParameterByName("Success Level", fail);
         if (fail == 0)
         {

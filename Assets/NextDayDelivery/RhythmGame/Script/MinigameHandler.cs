@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class MinigameHandler : MonoBehaviour
 {
-    public int test;
     public GameObject localMG;
     private Vector3 angles;
     private Camera minigameCam;
     public GameObject minigame;
     public int spawnTotal = 1;
-
     Vector3 MGLocation;
 
     void Awake()
@@ -30,7 +28,6 @@ public class MinigameHandler : MonoBehaviour
 
     void Update()
     {
-        test = localMG.GetComponentInChildren<Spawner>().level;
         if (localMG != null)
         {
             if (minigameCam.enabled != true)
