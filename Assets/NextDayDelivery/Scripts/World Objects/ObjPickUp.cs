@@ -78,6 +78,8 @@ public class ObjPickUp : MonoBehaviour
             {
                 rotate();
             }
+
+            this.GetComponent<Renderer>().material.SetFloat("_Mode", 3);
         }
 
         else
@@ -94,7 +96,6 @@ public class ObjPickUp : MonoBehaviour
         //As long as its not being inspected. 
         if (!inspecting)
         {
-            this.GetComponent<Renderer>().material.SetFloat("_Mode", 3);
             StartCoroutine(FadeColour(this.gameObject, fadeSpeed, transparentAlpha));
         }
 
