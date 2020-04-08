@@ -131,6 +131,4 @@ MonoBehaviour:
   tempParent: {fileID: 0}
   throwForce: 600
   wasThrown: 0
-  key: {fileID: 0}
-  door: {fileID: 0}
-  uielement: {fileID: 0}
+  m: {fileID: 2100000, guid: 31d2d654046cae948b0deee7fadfdb65, type: 2}
