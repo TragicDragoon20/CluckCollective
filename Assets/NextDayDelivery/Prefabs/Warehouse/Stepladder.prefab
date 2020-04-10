@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 737200222141528189}
   - component: {fileID: 737200222142330973}
   - component: {fileID: 737200222143298205}
+  - component: {fileID: 9053952672108385275}
+  - component: {fileID: 649711036375930042}
   m_Layer: 0
   m_Name: Stepladder
   m_TagString: Untagged
@@ -77,3 +79,28 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &9053952672108385275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737200222141293661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b0c96413e2a1a4587f8b633b1e5021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &649711036375930042
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737200222141293661}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.93328625, y: 0.9982355, z: 0.4700238}
+  m_Center: {x: -0.025063386, y: -0.51668555, z: 0.000000022924864}
