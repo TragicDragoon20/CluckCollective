@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d7873c6e2897af4d961f2a505b3837f, type: 2}
+  - {fileID: 2100000, guid: 54bac038fd7277141bcaa881af618c0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4709474610022136947}
   - component: {fileID: 4014296443596664321}
   m_Layer: 0
-  m_Name: wall_vent
+  m_Name: double_wall_vent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d7873c6e2897af4d961f2a505b3837f, type: 2}
+  - {fileID: 2100000, guid: 54bac038fd7277141bcaa881af618c0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243,7 +243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d7873c6e2897af4d961f2a505b3837f, type: 2}
+  - {fileID: 2100000, guid: 54bac038fd7277141bcaa881af618c0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -334,7 +334,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d7873c6e2897af4d961f2a505b3837f, type: 2}
+  - {fileID: 2100000, guid: 54bac038fd7277141bcaa881af618c0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
