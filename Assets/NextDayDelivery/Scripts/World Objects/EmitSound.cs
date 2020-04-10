@@ -18,14 +18,14 @@ public class EmitSound : MonoBehaviour
     private ObjPickUp objPickUp;
 
     [SerializeField]
-    private float timer = 0;
-    private ParticleSystem ripple;
+    private GameObject audioProjection;
+    private GameObject projector;
 
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
         objPickUp = this.gameObject.GetComponent<ObjPickUp>();
-        ripple = gameObject.GetComponentInChildren<ParticleSystem>();
+
 
     }
     private void FixedUpdate()
@@ -38,7 +38,6 @@ public class EmitSound : MonoBehaviour
         {
             if (velocity.z < 1 )
             {
-                ripple.Play();
                 origin = this.transform.position;
                 this.transform.rotation = new Quaternion(this.transform.rotation.x, 0, this.transform.rotation.z, 0);
                 
@@ -58,6 +57,7 @@ public class EmitSound : MonoBehaviour
                             fOVDetection.playerLastKnownPos = origin;
                             fOVDetection.playerLastKnownPos.y += 1;
                             enemy.state = EnemyAI.State.Sound;
+                            projector = Instantiate(audioProjection, new Vector3(this.transform.position.x, this.transform.position.y + 5, this.transform.position.z), Quaternion.Euler(90f, 0f, 0f));
                             objPickUp.wasThrown = false;
                         }
                         
