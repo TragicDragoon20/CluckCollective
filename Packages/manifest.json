@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.kink3d.decals": "https://github.com/Kink3d/kDecals.git",
+    "com.kink3d.pooling": "https://github.com/Kink3d/kPooling.git",
     "com.unity.package-manager-ui": "2.0.7",
     "com.unity.postprocessing": "2.3.0",
     "com.unity.probuilder": "4.2.3",
@@ -35,5 +37,15 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.kink3d.decals": {
+      "hash": "493ce6da5f644a6b3e464fef633111af8f1a3e3a",
+      "revision": "HEAD"
+    },
+    "com.kink3d.pooling": {
+      "hash": "3e94f4e2e9146b6b61cc9deec5e8b3a21c55bce7",
+      "revision": "HEAD"
+    }
   }
 }
