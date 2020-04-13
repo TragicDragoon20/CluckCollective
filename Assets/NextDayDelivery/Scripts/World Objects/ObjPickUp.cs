@@ -79,7 +79,7 @@ public class ObjPickUp : MonoBehaviour
                 rotate();
             }
 
-            this.GetComponent<Renderer>().material.SetFloat("_Mode", 3);
+            //this.GetComponent<Renderer>().material.SetFloat("_Mode", 3);
         }
 
         else
@@ -108,14 +108,14 @@ public class ObjPickUp : MonoBehaviour
 
         if (!inspecting)
         {
-            item.transform.localPosition = new Vector3(0, 0, 0);
+            item.transform.localPosition = new Vector3(0, 0.125f, 0);
         }
 
         //Ensures the item is of a certain rotation when it is not being inspected.
         //Keeps player view clear.
         if (!inspecting)
         {
-            item.transform.localRotation = Quaternion.Euler(170, 0, 0); 
+            item.transform.localRotation = Quaternion.Euler(0, 90, 15); 
         }
     }
 
@@ -144,7 +144,7 @@ public class ObjPickUp : MonoBehaviour
     void yeet()
     {
         //Raises the item just before throwing for better throw distance and aim.
-        item.transform.localPosition = new Vector3(0, 1, 0);
+        item.transform.localPosition = new Vector3(0, 0.75f, 0);
         item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         item.GetComponent<Rigidbody>().AddForce(tempParent.transform.forward * throwForce);
         freezeCam.canLook = true;
@@ -175,7 +175,7 @@ public class ObjPickUp : MonoBehaviour
             inspecting = true;
             freezeCam.canLook = false;
 
-            item.transform.localPosition = new Vector3(0, 0.5f, 1.5f);
+            item.transform.localPosition = new Vector3(0, 0.5f, 0.5f);
 
             //Reverts to full colour for inspection.
             StartCoroutine(FadeColour(this.gameObject, fadeSpeed, solidAlpha));
