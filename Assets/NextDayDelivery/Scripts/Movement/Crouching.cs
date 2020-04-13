@@ -51,7 +51,7 @@ public class Crouching : MonoBehaviour
             unCrouch();
         }
 
-        crouchBlocked = IsCeilingAbove(1.5f);
+        crouchBlocked = IsCeilingAbove(1.20f);
     }
 
     private void crouch()

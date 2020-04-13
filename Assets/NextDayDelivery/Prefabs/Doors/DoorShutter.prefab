@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4286681080625062605}
   - component: {fileID: 8359187365155255819}
   - component: {fileID: 1677557717380644703}
-  m_Layer: 13
+  m_Layer: 2
   m_Name: ShutterDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2943907757126049048}
-  m_Layer: 13
+  m_Layer: 2
   m_Name: DoorShutter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
