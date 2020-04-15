@@ -5,10 +5,14 @@ using UnityEngine;
 public class DoorRegular : MonoBehaviour
 {
     Animator anim;
-    bool Opening;
+    //bool Opening;
+
     public bool Locked;
+    public bool Opened = false;
+
     public GameObject key;
     // Start is called before the first frame update
+
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -23,14 +27,24 @@ public class DoorRegular : MonoBehaviour
     //}
     public void Interact()
     {
-        if (Locked == false)
+        if (!Opened)
         {
-            anim.SetBool("Open?", true);
+            if (Locked == false)
+            {
+                anim.SetBool("Open?", true);
+                Opened = true;
+            }
+            else
+            {
+                anim.SetTrigger("Locked");
+                Debug.Log("locked!!!");
+            }
         }
-        else
+
+        else if(Opened)
         {
-            anim.SetTrigger("Locked");
-            Debug.Log("locked!!!");
+            anim.SetBool("Open?", false);
+            Opened = false;
         }
     }
         
