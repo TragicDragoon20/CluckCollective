@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorRegular : MonoBehaviour
+public class FireDoor : MonoBehaviour
 {
     Animator anim;
     //bool Opening;
@@ -41,13 +41,13 @@ public class DoorRegular : MonoBehaviour
             }
         }
 
-        else if(Opened)
+        else if (Opened)
         {
             anim.SetBool("Open?", false);
             Opened = false;
         }
     }
-        
+
     //}
 
     void OnTriggerExit()
@@ -57,6 +57,6 @@ public class DoorRegular : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
