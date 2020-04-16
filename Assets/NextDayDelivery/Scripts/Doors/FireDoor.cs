@@ -5,58 +5,42 @@ using UnityEngine;
 public class FireDoor : MonoBehaviour
 {
     Animator anim;
-    //bool Opening;
 
-    public bool Locked;
     public bool Opened = false;
-
-    public GameObject key;
-    // Start is called before the first frame update
+    public bool canOpen = false;
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
     }
 
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //if (other.gameObject == key)
-    //{
-    //    Debug.Log("Unlocked!!!!");
-    //    Locked = false;
-    //}
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canOpen = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canOpen = false;
+        }
+    }
+
     public void Interact()
     {
-        if (!Opened)
+        if (canOpen == true)
         {
-            if (Locked == false)
-            {
-                anim.SetBool("Open?", true);
-                Opened = true;
-            }
-            else
-            {
-                anim.SetTrigger("Locked");
-                Debug.Log("locked!!!");
-            }
+            anim.SetBool("Open?", true);
+            Opened = true;
         }
 
-        else if (Opened)
+        else
         {
-            anim.SetBool("Open?", false);
-            Opened = false;
+
         }
-    }
-
-    //}
-
-    void OnTriggerExit()
-    {
-        //anim.SetBool("Open?", false);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
