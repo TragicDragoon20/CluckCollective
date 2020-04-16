@@ -10,6 +10,10 @@ ModelImporter:
     100008: //RootNode
     100010: trim_single_door3
     100012: wall_single_door
+    100014: polySurface3
+    100016: polySurface6
+    100018: trim
+    100020: trim2
     400000: bits
     400002: crash_bits
     400004: crash_handle_left
@@ -17,6 +21,10 @@ ModelImporter:
     400008: //RootNode
     400010: trim_single_door3
     400012: wall_single_door
+    400014: polySurface3
+    400016: polySurface6
+    400018: trim
+    400020: trim2
     2100000: lambert1
     2300000: bits
     2300002: crash_bits
@@ -24,18 +32,27 @@ ModelImporter:
     2300006: door_plain
     2300008: trim_single_door3
     2300010: wall_single_door
+    2300012: polySurface6
+    2300014: trim
+    2300016: trim2
     3300000: bits
     3300002: crash_bits
     3300004: crash_handle_left
     3300006: door_plain
     3300008: trim_single_door3
     3300010: wall_single_door
+    3300012: polySurface6
+    3300014: trim
+    3300016: trim2
     4300000: crash_handle_left
     4300002: crash_bits
     4300004: door_plain
     4300006: trim_single_door3
     4300008: wall_single_door
     4300010: bits
+    4300012: polySurface6
+    4300014: trim
+    4300016: trim2
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -9,28 +9,43 @@ ModelImporter:
     100006: //RootNode
     100008: trim_single_door3
     100010: wall_single_door
+    100012: polySurface11
+    100014: trim
+    100016: trim4
     400000: Door
     400002: door_handle
     400004: door_hindge
     400006: //RootNode
     400008: trim_single_door3
     400010: wall_single_door
+    400012: polySurface11
+    400014: trim
+    400016: trim4
     2100000: lambert1
     2300000: Door
     2300002: door_handle
     2300004: door_hindge
     2300006: trim_single_door3
     2300008: wall_single_door
+    2300010: polySurface11
+    2300012: trim
+    2300014: trim4
     3300000: Door
     3300002: door_handle
     3300004: door_hindge
     3300006: trim_single_door3
     3300008: wall_single_door
+    3300010: polySurface11
+    3300012: trim
+    3300014: trim4
     4300000: Door
     4300002: door_handle
     4300004: door_hindge
     4300006: wall_single_door
     4300008: trim_single_door3
+    4300010: trim
+    4300012: trim4
+    4300014: polySurface11
   externalObjects: {}
   materials:
     importMaterials: 1

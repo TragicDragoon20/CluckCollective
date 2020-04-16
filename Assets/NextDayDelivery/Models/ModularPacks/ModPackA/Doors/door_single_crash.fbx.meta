@@ -10,6 +10,9 @@ ModelImporter:
     100008: hinges
     100010: trim_single_door3
     100012: wall_single_door
+    100014: doorframe
+    100016: trim
+    100018: trim1
     400000: crash_bits
     400002: crash_handle_left
     400004: door_plain
@@ -17,6 +20,9 @@ ModelImporter:
     400008: hinges
     400010: trim_single_door3
     400012: wall_single_door
+    400014: doorframe
+    400016: trim
+    400018: trim1
     2100000: lambert1
     2300000: crash_bits
     2300002: crash_handle_left
@@ -24,18 +30,27 @@ ModelImporter:
     2300006: hinges
     2300008: trim_single_door3
     2300010: wall_single_door
+    2300012: doorframe
+    2300014: trim
+    2300016: trim1
     3300000: crash_bits
     3300002: crash_handle_left
     3300004: door_plain
     3300006: hinges
     3300008: trim_single_door3
     3300010: wall_single_door
+    3300012: doorframe
+    3300014: trim
+    3300016: trim1
     4300000: door_plain
     4300002: crash_bits
     4300004: crash_handle_left
     4300006: trim_single_door3
     4300008: wall_single_door
     4300010: hinges
+    4300012: trim
+    4300014: doorframe
+    4300016: trim1
   externalObjects: {}
   materials:
     importMaterials: 1

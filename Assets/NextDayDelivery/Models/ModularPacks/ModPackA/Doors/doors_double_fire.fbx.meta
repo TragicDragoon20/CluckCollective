@@ -13,6 +13,9 @@ ModelImporter:
     100014: fire_extras
     100016: trim_double_door
     100018: wall_double_door
+    100020: polySurface16
+    100022: trim
+    100024: trim5
     400000: crash_bits
     400002: crash_bits_right1
     400004: crash_door_left
@@ -23,6 +26,9 @@ ModelImporter:
     400014: fire_extras
     400016: trim_double_door
     400018: wall_double_door
+    400020: polySurface16
+    400022: trim
+    400024: trim5
     2100000: lambert1
     2300000: crash_bits
     2300002: crash_bits_right1
@@ -33,6 +39,9 @@ ModelImporter:
     2300012: fire_extras
     2300014: trim_double_door
     2300016: wall_double_door
+    2300018: polySurface16
+    2300020: trim
+    2300022: trim5
     3300000: crash_bits
     3300002: crash_bits_right1
     3300004: crash_door_left
@@ -42,6 +51,9 @@ ModelImporter:
     3300012: fire_extras
     3300014: trim_double_door
     3300016: wall_double_door
+    3300018: polySurface16
+    3300020: trim
+    3300022: trim5
     4300000: crash_bits
     4300002: fire_extras
     4300004: crash_door_right
@@ -51,6 +63,9 @@ ModelImporter:
     4300012: crash_handle_left
     4300014: crash_door_left
     4300016: crash_bits_right1
+    4300018: trim
+    4300020: trim5
+    4300022: polySurface16
   externalObjects: {}
   materials:
     importMaterials: 1

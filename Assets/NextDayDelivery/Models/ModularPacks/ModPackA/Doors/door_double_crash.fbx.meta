@@ -12,6 +12,12 @@ ModelImporter:
     100012: //RootNode
     100014: trim_double_door
     100016: wall_double_door
+    100018: Doortrim2
+    100020: trim_bottom
+    100022: trim_bottom1
+    100024: trim_bottom2
+    100026: wall_double_door1
+    100028: wall_double_door2
     400000: crash_bits
     400002: crash_bits_right1
     400004: crash_door_left
@@ -21,6 +27,12 @@ ModelImporter:
     400012: //RootNode
     400014: trim_double_door
     400016: wall_double_door
+    400018: Doortrim2
+    400020: trim_bottom
+    400022: trim_bottom1
+    400024: trim_bottom2
+    400026: wall_double_door1
+    400028: wall_double_door2
     2100000: lambert1
     2300000: crash_bits
     2300002: crash_bits_right1
@@ -30,6 +42,12 @@ ModelImporter:
     2300010: crash_handle_right
     2300012: trim_double_door
     2300014: wall_double_door
+    2300016: Doortrim2
+    2300018: trim_bottom
+    2300020: trim_bottom1
+    2300022: trim_bottom2
+    2300024: wall_double_door1
+    2300026: wall_double_door2
     3300000: crash_bits
     3300002: crash_bits_right1
     3300004: crash_door_left
@@ -38,6 +56,12 @@ ModelImporter:
     3300010: crash_handle_right
     3300012: trim_double_door
     3300014: wall_double_door
+    3300016: Doortrim2
+    3300018: trim_bottom
+    3300020: trim_bottom1
+    3300022: trim_bottom2
+    3300024: wall_double_door1
+    3300026: wall_double_door2
     4300000: crash_bits
     4300002: crash_door_right
     4300004: crash_handle_right
@@ -46,6 +70,12 @@ ModelImporter:
     4300010: crash_handle_left
     4300012: crash_door_left
     4300014: crash_bits_right1
+    4300016: trim_bottom2
+    4300018: wall_double_door2
+    4300020: trim_bottom
+    4300022: wall_double_door1
+    4300024: trim_bottom1
+    4300026: Doortrim2
   externalObjects: {}
   materials:
     importMaterials: 1
