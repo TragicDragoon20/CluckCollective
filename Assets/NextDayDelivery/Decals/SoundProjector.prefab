@@ -40,13 +40,13 @@ Projector:
   m_GameObject: {fileID: 6437180791585075610}
   m_Enabled: 1
   serializedVersion: 2
-  m_NearClipPlane: 2
-  m_FarClipPlane: 5
-  m_FieldOfView: 30
+  m_NearClipPlane: 0.8
+  m_FarClipPlane: -4
+  m_FieldOfView: 2
   m_AspectRatio: 1
   m_Orthographic: 1
   m_OrthographicSize: 1
   m_Material: {fileID: 2100000, guid: e30ff3588e719f34bbf0c66f22d97487, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 15926
+    m_Bits: 11831

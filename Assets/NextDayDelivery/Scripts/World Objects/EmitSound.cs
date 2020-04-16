@@ -38,6 +38,7 @@ public class EmitSound : MonoBehaviour
 
     private void Update()
     {
+        velocity = rb.velocity;
         if (timerRunning)
         {
             if(timeRemaining > 0)
@@ -51,31 +52,27 @@ public class EmitSound : MonoBehaviour
             }
         }    
     }
-
-    private void FixedUpdate()
-    {
-        velocity = rb.velocity;
-    }
     private void OnCollisionEnter(Collision collision)
     {
         if (objPickUp.wasThrown == true)
         {
-            
-            if (velocity.y < 0.2f && velocity.x < 0.2f && velocity.z < 0.2f)
+            if (velocity.y < 0.5f && velocity.x < 0.5f && velocity.z < 0.5f)
             {
                 objPickUp.wasThrown = false;
                 GetEnemiesInRange();
             }
         }
-        
     }
+
     private void SpawnProjectors()
     {
         this.transform.rotation = new Quaternion(this.transform.rotation.x, 0, this.transform.rotation.z, 0);
-        enemy.state = EnemyAI.State.Sound;
+        
         if(projector == null)
         {
-            projector = Instantiate(audioProjection, new Vector3(this.transform.position.x, 3.05f, this.transform.position.z), Quaternion.Euler(90f, 0f, 0f));
+            Debug.Log("SpawnProjector");
+            projector = Instantiate(audioProjection, this.transform.position , Quaternion.Euler(90f, 0f, 0f));
+            projector.GetComponent<Projector>().orthographicSize = sphereRadius;
         }
         else
         {
@@ -88,6 +85,7 @@ public class EmitSound : MonoBehaviour
     }
     private void GetEnemiesInRange()
     {
+        SpawnProjectors();
         Collider[] hits = Physics.OverlapSphere(origin, sphereRadius, layerMask, QueryTriggerInteraction.UseGlobal);
         
         int i = 0;
@@ -100,10 +98,10 @@ public class EmitSound : MonoBehaviour
                 fOVDetection = hits[i].gameObject.GetComponent<FOVDetection>();
                 if (enemy.state != EnemyAI.State.ChaseTarget)
                 {
+                    enemy.state = EnemyAI.State.Sound;
                     origin = this.transform.position;
                     fOVDetection.playerLastKnownPos = origin;
                     fOVDetection.playerLastKnownPos.y += 1;
-                    SpawnProjectors();
                 }
 
             }
