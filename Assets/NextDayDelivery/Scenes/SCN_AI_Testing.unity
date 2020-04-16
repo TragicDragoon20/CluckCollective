@@ -663,7 +663,7 @@ MonoBehaviour:
   audioProjection: {fileID: 6437180791585075610, guid: bab044008985c19479ef268e10916ae1,
     type: 3}
   projector: {fileID: 0}
-  timeStart: 10
+  timeStart: 3
 --- !u!208 &643312614
 NavMeshObstacle:
   m_ObjectHideFlags: 0

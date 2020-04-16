@@ -28,6 +28,7 @@ public class EmitSound : MonoBehaviour
     [SerializeField]
     private float timeStart;
     private float timeRemaining;
+    private LayerMask groundLayer = 8; 
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
@@ -50,16 +51,26 @@ public class EmitSound : MonoBehaviour
                 timerRunning = false;
                 Destroy(projector);
             }
-        }    
+        }
+        GroundCheck();
+
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void GroundCheck()
     {
-        if (objPickUp.wasThrown == true)
+        if (Physics.Raycast(transform.position, -Vector3.up, 0.5f))
         {
-            if (velocity.y < 0.5f && velocity.x < 0.5f && velocity.z < 0.5f)
+            if (objPickUp.wasThrown == true)
             {
-                objPickUp.wasThrown = false;
-                GetEnemiesInRange();
+                if (velocity.magnitude <= 1)
+                {
+                    GetEnemiesInRange();
+                    objPickUp.wasThrown = false;
+                }
+            }
+            else
+            {
+                Debug.Log("I HATE MY SELF");
             }
         }
     }
