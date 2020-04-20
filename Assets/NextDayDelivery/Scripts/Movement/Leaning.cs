@@ -40,6 +40,9 @@ public class Leaning : MonoBehaviour
 
     void Update()
     {
+        Debug.DrawRay(transform.position, transform.right * -1, Color.green);
+        Debug.DrawRay(transform.position, transform.right * 1, Color.blue);
+
         if (Input.GetKey("e"))
         {
             anim.SetInteger("Lean", 1);
