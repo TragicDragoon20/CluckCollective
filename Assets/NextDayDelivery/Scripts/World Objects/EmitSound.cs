@@ -82,7 +82,7 @@ public class EmitSound : MonoBehaviour
         if(projector == null)
         {
             Debug.Log("SpawnProjector");
-            projector = Instantiate(audioProjection, this.transform.position , Quaternion.Euler(90f, 0f, 0f));
+            projector = Instantiate(audioProjection, new Vector3(this.transform.position), Quaternion.Euler(90f, 0f, 0f));
             projector.GetComponent<Projector>().orthographicSize = sphereRadius;
         }
         else
