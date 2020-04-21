@@ -58,20 +58,21 @@ public class EmitSound : MonoBehaviour
 
     private void GroundCheck()
     {
-        if (Physics.Raycast(transform.position, -Vector3.up, 0.5f))
+        if (objPickUp.wasThrown)
         {
-            if (objPickUp.wasThrown == true)
+            if (Physics.Raycast(transform.position, -Vector3.up, 1f))
             {
-                if (velocity.magnitude <= 1)
+                if (velocity == Vector3.zero)
                 {
                     GetEnemiesInRange();
                     objPickUp.wasThrown = false;
                 }
-            }
             else
             {
                 Debug.Log("I HATE MY SELF");
             }
+            }
+       
         }
     }
 
@@ -82,7 +83,7 @@ public class EmitSound : MonoBehaviour
         if(projector == null)
         {
             Debug.Log("SpawnProjector");
-            projector = Instantiate(audioProjection, new Vector3(this.transform.position), Quaternion.Euler(90f, 0f, 0f));
+            projector = Instantiate(audioProjection, this.transform.position, Quaternion.Euler(90f, 0f, 0f));
             projector.GetComponent<Projector>().orthographicSize = sphereRadius;
         }
         else
