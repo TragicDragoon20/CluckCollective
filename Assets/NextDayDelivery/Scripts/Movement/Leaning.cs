@@ -29,8 +29,11 @@ public class Leaning : MonoBehaviour
 
     private Coroutine moveCoroutine;
 
-    public bool wallLeft;
-    public bool wallRight;
+    [Header("Check for Wall")]
+    [SerializeField]
+    private bool wallLeft;
+    [SerializeField]
+    private bool wallRight;
 
     void Start() 
     {
@@ -91,14 +94,14 @@ public class Leaning : MonoBehaviour
 
     private bool IsWallLeft()
     {
-        Debug.DrawRay(transform.position, -transform.right * 1, Color.green);
-        return Physics.Raycast(transform.position, -transform.right, 1);
+        Debug.DrawRay(transform.position, -transform.right * 0.75f, Color.green);
+        return Physics.Raycast(transform.position, -transform.right, 0.75f);
     }
 
     private bool IsWallRight()
     {
-        Debug.DrawRay(transform.position, transform.right * 1, Color.blue);
-        return Physics.Raycast(transform.position, transform.right, 1);
+        Debug.DrawRay(transform.position, transform.right * 0.75f, Color.blue);
+        return Physics.Raycast(transform.position, transform.right, 0.75f);
     }
 
     private IEnumerator MoveCamera(Vector3 newPosition, float speed)
