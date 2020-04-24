@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/NextDayDelivery/RhythmGame/Materials.meta
+guid: 8c9ce38b302159c4793f617efca223af
+=======
 guid: ae2cdd02e11c223459f215ddbb532949
+>>>>>>> bff805bb44fe66811c09bf35eaef80b4d1169e53:Assets/NextDayDelivery/Interface/Menu Assets.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

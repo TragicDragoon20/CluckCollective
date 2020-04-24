@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/NextDayDelivery/RhythmGame/Prefabs/HackHandler.prefab.meta
+guid: ac21233dd2207d749a6e0bccc793ed54
+PrefabImporter:
+=======
 guid: ade99150a8fa6f049bc168938f0bab9e
 folderAsset: yes
 DefaultImporter:
+>>>>>>> bff805bb44fe66811c09bf35eaef80b4d1169e53:Assets/NextDayDelivery/Materials/Dalek Colours.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
