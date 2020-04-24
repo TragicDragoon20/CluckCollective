@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Leaning : MonoBehaviour
 {
+    public MouseLook freezeCam;
+
     [Header("Leaning Values")]
     public float leanDistance = 1f;
     public float leanAngle = 30f;
@@ -27,6 +29,12 @@ public class Leaning : MonoBehaviour
 
     private Coroutine moveCoroutine;
 
+    [Header("Check for Wall")]
+    [SerializeField]
+    private bool wallLeft;
+    [SerializeField]
+    private bool wallRight;
+
     void Start() 
     {
         leanRightDistance = leanDistance;
@@ -34,28 +42,34 @@ public class Leaning : MonoBehaviour
         leanLeftDistance = leanDistance * -1;
         leanRightAngle = leanAngle * -1;
         currentHeight = camHeight;
+        wallLeft = false;
+        wallRight = false;
     }
 
     void Update()
     {
-        if (Input.GetKey("e"))
+        if (Input.GetKey("e") && (!wallRight))
         {
             anim.SetInteger("Lean", 1);
+            freezeCam.canLook = false;
         }
 
-        else if (Input.GetKeyUp("e"))
+        else if (Input.GetKeyUp("e") || (wallRight))
         {
             anim.SetInteger("Lean", 0);
+            freezeCam.canLook = true;
         }
 
-        else if (Input.GetKey("q"))
+        else if (Input.GetKey("q") && (!wallLeft))
         {
             anim.SetInteger("Lean", -1);
+            freezeCam.canLook = false;
         }
 
-        else if (Input.GetKeyUp("q"))
+        else if (Input.GetKeyUp("q") || (wallLeft))
         {
             anim.SetInteger("Lean", 0);
+            freezeCam.canLook = true;
         }
 
         if (Input.GetKey(KeyCode.LeftControl))
@@ -73,6 +87,21 @@ public class Leaning : MonoBehaviour
         { 
             moveCoroutine = StartCoroutine(MoveCamera(new Vector3(0, camHeight, 0), 1.25f));
         }
+
+        wallLeft = IsWallLeft();
+        wallRight = IsWallRight();
+    }
+
+    private bool IsWallLeft()
+    {
+        Debug.DrawRay(transform.position, -transform.right * 0.75f, Color.green);
+        return Physics.Raycast(transform.position, -transform.right, 0.75f);
+    }
+
+    private bool IsWallRight()
+    {
+        Debug.DrawRay(transform.position, transform.right * 0.75f, Color.blue);
+        return Physics.Raycast(transform.position, transform.right, 0.75f);
     }
 
     private IEnumerator MoveCamera(Vector3 newPosition, float speed)

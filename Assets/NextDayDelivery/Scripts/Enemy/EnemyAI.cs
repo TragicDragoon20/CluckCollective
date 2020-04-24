@@ -6,21 +6,36 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField]
     protected GameObject player;
+    [SerializeField]
+    protected ParticleSystem particleFire;
+    [SerializeField]
+    protected ParticleSystem particleSmoke;
+
     [Header("Player Lost")]
     [SerializeField]
     protected float continueToFollowTime;
     [SerializeField]
     protected float lostSearchTime;
-    [Range (45, 180)][SerializeField]
-    protected float playerLostAngularSpeed;
+    [SerializeField]
+    protected Vector3 rotationSpeed;
+
     [Header ("Patrol")]
     public NavMeshAgent agent;
-    [Tooltip ("when the ground is at y = 0 put the patrol point on y = 2. This makes sure that the AI can see the patrol point and detect it.")][SerializeField]
+    [Tooltip ("when the ground is at y = 0 put the patrol point on y = 1. This makes sure that the AI can see the patrol point and detect it.")][SerializeField]
     protected GameObject[] patrolPoints;
     [SerializeField]
     protected int currentPatrolPoint;
     protected Rigidbody rb;
 
+    [Header("SHooting")]
+    [SerializeField]
+    private LayerMask layerMask;
+    [SerializeField]
+    private float damage;
+    [SerializeField]
+    private float fireRate;
+    private float nextTimeToFire = 0f;
+    private Health health;
 
     private FOVDetection fOVDetection;
 
@@ -32,6 +47,8 @@ public class EnemyAI : MonoBehaviour
         ChaseTarget,
         TargetLost,
         Sound,
+        LostRotation,
+        ShootTarget,
     }
 
     private void Awake()
@@ -39,11 +56,15 @@ public class EnemyAI : MonoBehaviour
         agent = this.GetComponent<NavMeshAgent>();
         fOVDetection = this.GetComponent<FOVDetection>();
         rb = this.gameObject.GetComponent<Rigidbody>();
-        
+        health = player.GetComponent<Health>();
+        particleFire = this.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+        particleSmoke = this.gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+
     }
 
     private void Start()
     {
+        rotationSpeed = new Vector3(0f, 100f, 0f);
         state = State.Patrol;
     }
 
@@ -63,7 +84,13 @@ public class EnemyAI : MonoBehaviour
                 PlayerLost();
                 break;
             case State.Sound:
-                GoToSmallSound();
+                GoToSound();
+                break;
+            case State.LostRotation:
+                LostRotation();
+                break;
+            case State.ShootTarget:
+                ShootTarget();
                 break;
         }
     }
@@ -88,7 +115,11 @@ public class EnemyAI : MonoBehaviour
             continueToFollowTime = 8f;
             lostSearchTime = 5f;
             agent.SetDestination(player.transform.position);
-            
+
+            if (fOVDetection.canShoot)
+            {
+                state = State.ShootTarget;
+            }
         }
         else if (!fOVDetection.isInFov)
         {
@@ -107,27 +138,31 @@ public class EnemyAI : MonoBehaviour
 
     private void PlayerLost()
     {
-
-        //fOVDetection.playerLastKnownPos.y = 2f;
-        //lostSearchTime = 5f;
-        if (Vector3.Distance(this.transform.position, fOVDetection.playerLastKnownPos) < 4f)
+        if (Vector3.Distance(this.transform.position, fOVDetection.playerLastKnownPos) < 5f)
         {
-            if (lostSearchTime <= 0)
-            {
-                state = State.Patrol;
-            }
-            else
-            {
-                this.transform.Rotate(Vector3.up * playerLostAngularSpeed * Time.deltaTime);
-                lostSearchTime -= Time.deltaTime;
-            }
+            agent.SetDestination(this.transform.position);
+            state = State.LostRotation;
         }
         else
         {
             agent.SetDestination(fOVDetection.playerLastKnownPos);
         }
     }
-    private void GoToSmallSound()
+    private void LostRotation()
+    {
+        if (lostSearchTime <= 0)
+        {
+            state = State.Patrol;
+        }
+        else
+        {
+            Quaternion deltaRotation = Quaternion.Euler(rotationSpeed * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * deltaRotation);
+            lostSearchTime -= Time.deltaTime;
+        }
+    }
+
+    private void GoToSound()
     {
         if (Vector3.Distance(this.transform.position, fOVDetection.playerLastKnownPos) > 3f)
         {
@@ -140,4 +175,32 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+
+
+    private void ShootTarget()
+    {
+        if (!fOVDetection.canShoot)
+        {
+            state = State.ChaseTarget;
+        }
+        else
+        {
+            if(player != null)
+            {
+                agent.SetDestination(player.transform.position);
+            }
+            if (Time.time >= nextTimeToFire)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, layerMask))
+                {
+                    health.currentHealth -= damage;
+                    particleSmoke.Play();
+                    particleFire.Play();
+                }
+                nextTimeToFire = Time.time + 1f / fireRate;
+            }
+        }
+    }
 }

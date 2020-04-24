@@ -5,13 +5,12 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public CharacterController controller;
+    public Crouching crouched;
 
     [Header("Movement Speeds")]
     public float speed = 0f;
     [SerializeField]
     private float walkSpeed = 0f;
-    [SerializeField]
-    private float crouchSpeed = 0f;
     [SerializeField]
     private float runSpeed = 0f;
     [SerializeField]
@@ -29,15 +28,11 @@ public class Movement : MonoBehaviour
     void Update()
     {
         //Checks to see if player is crouching, adjusts speed to match.
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            speed = crouchSpeed;
-        }
-        else if (Input.GetKey(KeyCode.LeftShift))
+        if ((Input.GetKey(KeyCode.LeftShift)) && (!crouched.crouched))
         {
             speed = runSpeed;
         }
-        else
+        else if (!crouched.crouched)
         {
             speed = walkSpeed;
         }

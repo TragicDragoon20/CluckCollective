@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5529375450341024218}
   - component: {fileID: 5727923493233512174}
   - component: {fileID: 1446650792666510098}
-  - component: {fileID: 1176438384498842528}
+  - component: {fileID: 6798836844013308663}
+  - component: {fileID: 343771729}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -67,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 5529375450341024218}
+  crouched: {fileID: 1446650792666510098}
   speed: 0
   walkSpeed: 8
   crouchSpeed: 4
@@ -90,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c5c303a02a7b04aade6ba25e894cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: {fileID: 5727923493233512174}
   crouching: 0.5
   crouchSpeed: 0.1
   standing: 1.8
@@ -100,7 +103,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   Camera: {fileID: 4639298930499208945}
---- !u!114 &1176438384498842528
+--- !u!114 &6798836844013308663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,10 +112,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1606869459301410093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fabdf30978805fa44ab201eca2138c3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e01d968b802ca44aa723c5ae7cc8dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: {fileID: 5727923493233512174}
+--- !u!114 &343771729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606869459301410093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 458152b3db396824094cf3fdd8bfc600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healthRegen: 25
+  regenTime: 1
+  currentHealth: 0
 --- !u!1 &3885975832909350135
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1ede6f499c6fc4fb33afe5db9639a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeCam: {fileID: 0}
   leanDistance: 1
   leanAngle: 30
   leanSpeed: 0.1
@@ -276,7 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9bfb4ef65908f54b85c59ef2eee7406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerReach: 2
+  playerReach: 2.5
+  holding: 0
 --- !u!1 &5189089851665739290
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5189089851665739290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: -0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1980783665706753515}

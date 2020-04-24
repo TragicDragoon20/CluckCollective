@@ -5,33 +5,50 @@ using UnityEngine;
 public class DoorRegular : MonoBehaviour
 {
     Animator anim;
-    bool Opening;
+    //bool Opening;
+
     public bool Locked;
+    public bool Opened = false;
+
     public GameObject key;
     // Start is called before the first frame update
+
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
     }
 
-    public void OnTriggerEnter(Collider other)
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //if (other.gameObject == key)
+    //{
+    //    Debug.Log("Unlocked!!!!");
+    //    Locked = false;
+    //}
+    public void Interact()
     {
-        if (other.gameObject == key)
+        if (!Opened)
         {
-            Debug.Log("Unlocked!!!!");
-            Locked = false;
+            if (Locked == false)
+            {
+                anim.SetBool("Open?", true);
+                Opened = true;
+            }
+            else
+            {
+                anim.SetTrigger("Locked");
+                Debug.Log("locked!!!");
+            }
         }
-        if (Locked == false)
+
+        else if(Opened)
         {
-            anim.SetBool("Open?", true);
+            anim.SetBool("Open?", false);
+            Opened = false;
         }
-        else
-        {
-            anim.SetTrigger("Locked");
-            Debug.Log("locked!!!");
-        }
-        
     }
+        
+    //}
 
     void OnTriggerExit()
     {
