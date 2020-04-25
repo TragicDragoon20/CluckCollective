@@ -164,14 +164,21 @@ public class EnemyAI : MonoBehaviour
 
     private void GoToSound()
     {
-        if (Vector3.Distance(this.transform.position, fOVDetection.playerLastKnownPos) > 3f)
+        if (fOVDetection.isInFov)
         {
-            agent.SetDestination(fOVDetection.playerLastKnownPos);
+            state = State.ChaseTarget;
         }
         else
         {
-            lostSearchTime = 5f;
-            state = State.TargetLost;
+            if (Vector3.Distance(this.transform.position, fOVDetection.playerLastKnownPos) > 3f)
+            {
+                agent.SetDestination(fOVDetection.playerLastKnownPos);
+            }
+            else
+            {
+                lostSearchTime = 5f;
+                state = State.TargetLost;
+            }
         }
     }
 
