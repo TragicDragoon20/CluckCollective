@@ -24,7 +24,7 @@ public class ObjectPushed : MonoBehaviour
     private void push()
     {
         //Debug.Log("Sucess");
-        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
 
     private void noPush()
