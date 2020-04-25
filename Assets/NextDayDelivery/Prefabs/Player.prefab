@@ -49,11 +49,11 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.8
-  m_Radius: 0.3
+  m_Radius: 0.25
   m_SlopeLimit: 45
-  m_StepOffset: 0.6
-  m_SkinWidth: 0.03
-  m_MinMoveDistance: 0.001
+  m_StepOffset: 0.4
+  m_SkinWidth: 0.1
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5727923493233512174
 MonoBehaviour:
@@ -71,7 +71,6 @@ MonoBehaviour:
   crouched: {fileID: 1446650792666510098}
   speed: 0
   walkSpeed: 8
-  crouchSpeed: 4
   runSpeed: 12
   gravity: -30
   groundCheck: {fileID: 8616977089549177922}
@@ -132,6 +131,8 @@ MonoBehaviour:
   healthRegen: 25
   regenTime: 1
   currentHealth: 0
+  canvas: {fileID: 0}
+  postPro: {fileID: 0}
 --- !u!1 &3885975832909350135
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +270,8 @@ MonoBehaviour:
   crouchCam: 0.5
   currentHeight: 0
   crouching: {fileID: 1446650792666510098}
+  wallLeft: 0
+  wallRight: 0
 --- !u!114 &6883644395293485319
 MonoBehaviour:
   m_ObjectHideFlags: 0
