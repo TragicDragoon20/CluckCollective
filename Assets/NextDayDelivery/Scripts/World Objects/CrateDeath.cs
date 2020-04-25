@@ -20,7 +20,7 @@ public class CrateDeath : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb.velocity.y < 0f)
+        if (rb.velocity.y < -0.5f)
         {
             FallingCrate(this.transform, colliderSize, orientation, layerMask);
         }

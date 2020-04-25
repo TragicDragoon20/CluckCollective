@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7993074916786182628}
   - component: {fileID: 1941262840072140513}
   - component: {fileID: 6607247115946659379}
+  - component: {fileID: 458857268483523913}
   m_Layer: 0
   m_Name: fireExtinguisher
   m_TagString: Untagged
@@ -131,4 +132,24 @@ MonoBehaviour:
   tempParent: {fileID: 0}
   throwForce: 600
   wasThrown: 0
-  m: {fileID: 2100000, guid: 31d2d654046cae948b0deee7fadfdb65, type: 2}
+--- !u!114 &458857268483523913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3366940268563477592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c72ca205a870c44aae74daa4b59cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereRadius: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  origin: {x: 0, y: 0, z: 0}
+  audioProjection: {fileID: 6437180791585075610, guid: bab044008985c19479ef268e10916ae1,
+    type: 3}
+  projector: {fileID: 0}
+  timeStart: 3
