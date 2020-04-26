@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class PlayerPush : MonoBehaviour
 {
-    public Movement moveSpeed;
-
-    private float speed;
-
-    void Update()
-    {
-        speed = moveSpeed.speed;
-    }
+    [SerializeField]
+    private float pushSpeed = 4;
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -27,6 +21,6 @@ public class PlayerPush : MonoBehaviour
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
 
-        body.velocity = pushDir * speed;
+        body.velocity = pushDir * pushSpeed;
     }
 }
