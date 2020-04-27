@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - minigameHandler: {fileID: 371910840530147014, guid: ac21233dd2207d749a6e0bccc793ed54,
+  - minigameHandler: {fileID: 371910840530147014, guid: 162167df09ec47d4f894bacb4b5e03e2,
       type: 3}
   executionOrder: 0
   icon: {instanceID: 0}

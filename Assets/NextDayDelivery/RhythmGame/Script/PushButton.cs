@@ -9,13 +9,14 @@ public class PushButton : MonoBehaviour
 
     public void CreateMinigame()
     {
+        GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuHandler>().e = Convert.ToInt32(gameObject.name);
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
     }
 
     IEnumerator LevelTiming()
     {
-        GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuHandler>().e = Convert.ToInt32(gameObject.name);
-        yield return new WaitForSeconds(2);
+
+        yield return new WaitForSeconds(1);
         Instantiate(minigameHandler);
         Destroy(GameObject.FindGameObjectWithTag("Menu"));
     }

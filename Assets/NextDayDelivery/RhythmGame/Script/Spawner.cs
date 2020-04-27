@@ -14,17 +14,17 @@ public class Spawner : MonoBehaviour
     public int counter = 0;
     public int fail = 4;
     public GameObject note;
-    private string[][] levels = new string[][] { new[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p" },
-        new[] { "s", "h", "r", "e", "k", },
-        new[] { "2", "h", "r", "e", "k", "2" },
-        new[] { "s", "h", "r", "e", "k", "3" },
-        new[] { "s", "h", "r", "e", "k", "4" } }; //A multidimentional string array that's output by the spawner. The new[] before each array allows them to be of any length.
+    private string[][] levels = new string[][] { new string[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p" },
+        new string[] { "s", "h", "r", "e", "k", "s", "h", "r"},
+        new string[] { "2", "h", "r", "e", "k", "2" },
+        new string[] { "s", "h", "r", "e", "k", "3" },
+        new string[] { "s", "h", "r", "e", "k", "4" } }; //A multidimentional string array that's output by the spawner. The new[] before each array allows them to be of any length.
 
-    private float[][] levelTimes = new float[][] { new[] {3f,7,2,3,3,3,2,2,2,3,9}, //Each number in this array represents the amount of time between each note. Each number is in seconds /10 - so 3 is 0.3 seconds.
-        new[] {5,2,1,7,5f},
-        new[] {5,2,1,7,5f},
-        new[] {5,2,1,7,5f},
-        new[] {5,2,1,7,5f} };
+    private float[][] levelTimes = new float[][] { new float[] {3f,7f,2,3,3,3,2,2,2,3,9}, //Each number in this array represents the amount of time between each note. Each number is in seconds /10 - so 3 is 0.3 seconds.
+        new float[] {3f,12f,2,3,3,3,2,2,5},
+        new float[] {5f,2,1,7,5,2},
+        new float[] {5f,2,1,7,5},
+        new float[] {5f,2,1,7,5f} };
 
     void Awake()
     {
@@ -32,13 +32,14 @@ public class Spawner : MonoBehaviour
         level = GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuHandler>().e;
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
         Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-        Audiooo.setParameterByName("Section", level);
+        Audiooo.setParameterByName("Section", level+1);
         Audiooo.start();
         Audiooo.setPaused(true);
     }
 
     void Update()
     {
+        UnityEngine.Debug.Log(level);
         Audiooo.setParameterByName("Success Level", fail);
         if (fail == 0)
         {
@@ -58,7 +59,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator LevelTiming() //Lanuches a time sensitive function
     {
-        for (int i = 0; i < levels[(level)].Length; i++) // for each item in the chosen level
+        for (int i = 0; i < levels[level].Length; i++) // for each item in the chosen level
         {
             if(counter >= 0)
             {

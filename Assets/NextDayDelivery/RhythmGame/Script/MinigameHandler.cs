@@ -9,7 +9,6 @@ public class MinigameHandler : MonoBehaviour
     private Camera minigameCam;
     public GameObject minigame;
     public int spawnTotal = 1;
-    public int test = 1;
     Vector3 MGLocation;
 
     void Awake()

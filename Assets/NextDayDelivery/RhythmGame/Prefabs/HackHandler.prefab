@@ -57,8 +57,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bbc869c4807ed44c9b0ad33ebe519ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigame: {fileID: 8981002459650884094, guid: d4b56adba1e8d1146b94946e88b02d86,
+  localMG: {fileID: 0}
+  minigame: {fileID: 8981002459650884094, guid: ccb0dd611f581ff449cb772755eed124,
     type: 3}
   spawnTotal: 0
-  menu: {fileID: 6403259333406638463, guid: f4ff9823b3f418a48bc9e69eb3c0694f, type: 3}
-  button: {fileID: 3974198474591833755, guid: 301f0e9e30e83154ebe08977342a824e, type: 3}
+  test: 1

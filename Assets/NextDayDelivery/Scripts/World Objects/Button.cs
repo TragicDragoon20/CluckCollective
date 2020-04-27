@@ -5,9 +5,13 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     public ShutterDoor door;
+    public bool activate;
 
-    void Interact()
+    void update()
     {
-        door.open();
+        if(activate = true)
+        {
+            door.open();
+        }
     }
 }
