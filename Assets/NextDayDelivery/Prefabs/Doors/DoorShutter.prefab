@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8359187365155255819}
   - component: {fileID: 1677557717380644703}
   m_Layer: 2
-  m_Name: ShutterDoor
+  m_Name: ShutterDoorA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

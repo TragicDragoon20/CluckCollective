@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 public class StartGame : MonoBehaviour
 {
     private int counter = 0;
-    public int victory = 0;
     public Canvas menu;
     void Interact()
     {
@@ -30,8 +29,9 @@ public class StartGame : MonoBehaviour
             Instantiate(menu);
             counter += 1;
         }
-        if(victory == 1)
-        {
+    }
+    public void OnVictory()
+    {
             MonoBehaviour[] playerScripts = GameObject.Find("Player").GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour script in playerScripts)
             {
@@ -42,11 +42,12 @@ public class StartGame : MonoBehaviour
             {
                 script.enabled = true;
             }
+
             Camera.main.GetComponent<MouseLook>().enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
-            GetComponent<Button>().activate = true;
+            this.GetComponent<Button>().activate = true;
             Cursor.visible = false;
             Input.GetMouseButtonDown(1);
-        }
+
     }
 }

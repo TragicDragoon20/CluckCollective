@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
             Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             Audiooo.release();
             UnityEngine.Debug.Log("Congrats!"); //here use varying effects based off of the level value. EG if you beat level 1, then effect no 1 will happen which should be opening the door. Maybe create a nested array of effects like the level and timing arrays?
-            GameObject.Find("1").GetComponent<StartGame>().victory = 1;
+            GameObject.Find("1").GetComponent<StartGame>().OnVictory(); //CHANGE THIS SO 1 IS EQUAL TO WHATEVER THE LEVEL VALUE IS!
             destroy = true;
         }
     }

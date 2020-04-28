@@ -9,6 +9,10 @@ TagManager:
   - RhythmFail
   - RhythmHandler
   - Menu
+  - 1
+  - 2
+  - 3
+  - 4
   layers:
   - Default
   - TransparentFX
