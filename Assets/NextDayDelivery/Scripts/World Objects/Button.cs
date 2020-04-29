@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    public ShutterDoor shutter;
-    public DoorRegular regular;
+    public ShutterDoor door;
     public bool activate = false;
 
     void Update()
     {
         if (activate == true)
         {
-            if (regular != null)
-            {
-                regular.Locked = false;
-            }
-
-            if (shutter != null)
-            {
-                shutter.open();
-            }
+            door.open();
         }
     }
 }
