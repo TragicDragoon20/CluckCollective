@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb2cf5907b85cf4a96135fd77c7b1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Locked: 0
+  Locked: 1
   Opened: 0
   key: {fileID: 0}
 --- !u!95 &796183080119940228
