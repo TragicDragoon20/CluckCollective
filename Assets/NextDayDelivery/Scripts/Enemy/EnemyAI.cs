@@ -38,7 +38,6 @@ public class EnemyAI : MonoBehaviour
     private Health health;
 
     protected Animation firingAnimation;
-    protected bool canFireAnim = false;
 
     private FOVDetection fOVDetection;
 
@@ -56,6 +55,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
+
         agent = this.GetComponent<NavMeshAgent>();
         fOVDetection = this.GetComponent<FOVDetection>();
         rb = this.gameObject.GetComponent<Rigidbody>();
@@ -63,7 +63,6 @@ public class EnemyAI : MonoBehaviour
         particleFire = this.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
         particleSmoke = this.gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
         firingAnimation = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animation>();
-
     }
 
     private void Start()
@@ -78,52 +77,33 @@ public class EnemyAI : MonoBehaviour
         {
             default:
             case State.Patrol:
-                canFireAnim = false;
                 Patrol();
                 PlayerInSight();
                 break;
             case State.ChaseTarget:
-                canFireAnim = false;
                 FollowPlayer();
                 break;
             case State.TargetLost:
-                canFireAnim = false;
                 PlayerLost();
                 break;
             case State.Sound:
-                canFireAnim = false;
                 GoToSound();
                 break;
             case State.LostRotation:
-                canFireAnim = false;
                 LostRotation();
                 break;
             case State.ShootTarget:
-                canFireAnim = false;
                 ShootTarget();
                 break;
         }
-        if(state != State.Patrol)
-        {
-            if (canFireAnim)
-            {
-                firingAnimation.Play("Close");
-            }
-        }
-        else
-        {
-            if (canFireAnim)
-            {
-                firingAnimation.Play("Open");
-            }
-        }
+
     }
 
     private void PlayerInSight()
     {
         if (fOVDetection.isInFov)
         {
-            canFireAnim = true;
+            firingAnimation.Play("Open");
             state = State.ChaseTarget;
         }
     }
@@ -177,7 +157,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (lostSearchTime <= 0)
         {
-            canFireAnim = true;
+            firingAnimation["Close"].speed = -1;
+            firingAnimation.Play("Close");
             state = State.Patrol;
         }
         else

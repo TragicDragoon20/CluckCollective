@@ -9,6 +9,9 @@ public class EmitSound : MonoBehaviour
     [SerializeField]
     private float sphereRadius;
     public LayerMask layerMask;
+    [SerializeField]
+    private AudioClip droopSound;
+    private AudioSource audioSource;
 
     public Vector3 origin;
     private Vector3 velocity;
@@ -28,9 +31,12 @@ public class EmitSound : MonoBehaviour
     [SerializeField]
     private float timeStart;
     private float timeRemaining;
-    private LayerMask groundLayer = 8; 
+    [SerializeField]
+    private LayerMask groundLayers; 
     private void Awake()
     {
+        audioSource = this.GetComponent<AudioSource>();
+        audioSource.clip = droopSound;
         rb = this.GetComponent<Rigidbody>();
         objPickUp = this.gameObject.GetComponent<ObjPickUp>();
 
@@ -78,13 +84,15 @@ public class EmitSound : MonoBehaviour
 
     private void SpawnProjectors()
     {
-        this.transform.rotation = new Quaternion(this.transform.rotation.x, 0, this.transform.rotation.z, 0);
+        this.transform.rotation = new Quaternion(this.transform.rotation.x, 3, this.transform.rotation.z, 0);
         
         if(projector == null)
         {
             Debug.Log("SpawnProjector");
             projector = Instantiate(audioProjection, this.transform.position, Quaternion.Euler(90f, 0f, 0f));
             projector.GetComponent<Projector>().orthographicSize = sphereRadius;
+            audioSource.Play();
+          
         }
         else
         {

@@ -223,17 +223,17 @@ PrefabInstance:
     - target: {fileID: 1049568692124255988, guid: 58e7982df38b1e942ba9f80cefd50ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.057
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1049568692124255988, guid: 58e7982df38b1e942ba9f80cefd50ab4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.158
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1049568692124255988, guid: 58e7982df38b1e942ba9f80cefd50ab4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.091
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1049568692124255988, guid: 58e7982df38b1e942ba9f80cefd50ab4,
         type: 3}
@@ -365,6 +365,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1stFloorRobot
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
 --- !u!4 &2712032024797082233 stripped
@@ -383,17 +391,17 @@ PrefabInstance:
     - target: {fileID: 2815235653722342975, guid: e811ad996d1874a478611962afb1232a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.057
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2815235653722342975, guid: e811ad996d1874a478611962afb1232a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.158
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2815235653722342975, guid: e811ad996d1874a478611962afb1232a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.091
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2815235653722342975, guid: e811ad996d1874a478611962afb1232a,
         type: 3}
