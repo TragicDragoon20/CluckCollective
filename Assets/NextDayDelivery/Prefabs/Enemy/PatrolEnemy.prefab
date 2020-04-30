@@ -204,6 +204,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &3078438043798510789
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4195824359536166564}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+  - {fileID: 7400002, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &4191744299132682719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,6 +228,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6560787428778389641}
     m_Modifications:
+    - target: {fileID: 5852758687468298453, guid: e811ad996d1874a478611962afb1232a,
+        type: 3}
+      propertyPath: m_Name
+      value: GunFlash
+      objectReference: {fileID: 0}
     - target: {fileID: 2815235653722342975, guid: e811ad996d1874a478611962afb1232a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -266,11 +288,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5852758687468298453, guid: e811ad996d1874a478611962afb1232a,
-        type: 3}
-      propertyPath: m_Name
-      value: GunFlash
-      objectReference: {fileID: 0}
     - target: {fileID: 11867194310517881, guid: e811ad996d1874a478611962afb1232a,
         type: 3}
       propertyPath: looping
@@ -291,6 +308,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6560787428778389641}
     m_Modifications:
+    - target: {fileID: 100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Name
+      value: 1stFloorRobot
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.008
@@ -347,16 +368,23 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Name
-      value: 1stFloorRobot
-      objectReference: {fileID: 0}
     - target: {fileID: 11100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
       propertyPath: m_PlayAutomatically
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+--- !u!1 &4195824359536166564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 2faf3ed2208654d4294a8abc38e66f1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4195824359536066564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4195824359535942276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2faf3ed2208654d4294a8abc38e66f1e,
@@ -370,6 +398,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6560787428778389641}
     m_Modifications:
+    - target: {fileID: 819140828670594611, guid: 58e7982df38b1e942ba9f80cefd50ab4,
+        type: 3}
+      propertyPath: m_Name
+      value: GunSmoke
+      objectReference: {fileID: 0}
     - target: {fileID: 1049568692124255988, guid: 58e7982df38b1e942ba9f80cefd50ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -424,11 +457,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 819140828670594611, guid: 58e7982df38b1e942ba9f80cefd50ab4,
-        type: 3}
-      propertyPath: m_Name
-      value: GunSmoke
       objectReference: {fileID: 0}
     - target: {fileID: 124116095646839153, guid: 58e7982df38b1e942ba9f80cefd50ab4,
         type: 3}

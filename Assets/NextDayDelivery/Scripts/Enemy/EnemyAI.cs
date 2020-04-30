@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
     private Health health;
 
     protected Animation firingAnimation;
-    protected bool canFireAnim = false;
+    protected bool canFireAnim = true;
 
     private FOVDetection fOVDetection;
 
@@ -56,6 +56,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
+
         agent = this.GetComponent<NavMeshAgent>();
         fOVDetection = this.GetComponent<FOVDetection>();
         rb = this.gameObject.GetComponent<Rigidbody>();
@@ -63,7 +64,7 @@ public class EnemyAI : MonoBehaviour
         particleFire = this.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
         particleSmoke = this.gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
         firingAnimation = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animation>();
-
+        firingAnimation.Play("Close");
     }
 
     private void Start()
@@ -103,18 +104,18 @@ public class EnemyAI : MonoBehaviour
                 ShootTarget();
                 break;
         }
-        if(state != State.Patrol)
+        if(state == State.Patrol)
         {
             if (canFireAnim)
             {
-                firingAnimation.Play("Close");
+                //firingAnimation.Play("Close");
             }
         }
-        else
+        else if (state != State.Patrol)
         {
             if (canFireAnim)
             {
-                firingAnimation.Play("Open");
+                //firingAnimation.Play("Open");
             }
         }
     }
@@ -166,6 +167,7 @@ public class EnemyAI : MonoBehaviour
         if (Vector3.Distance(this.transform.position, fOVDetection.playerLastKnownPos) < 5f)
         {
             agent.SetDestination(this.transform.position);
+            canFireAnim = true;
             state = State.LostRotation;
         }
         else
