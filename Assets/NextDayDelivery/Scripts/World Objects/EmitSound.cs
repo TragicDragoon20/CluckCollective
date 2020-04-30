@@ -31,7 +31,8 @@ public class EmitSound : MonoBehaviour
     [SerializeField]
     private float timeStart;
     private float timeRemaining;
-    private LayerMask groundLayer = 8; 
+    [SerializeField]
+    private LayerMask groundLayers; 
     private void Awake()
     {
         audioSource = this.GetComponent<AudioSource>();
@@ -83,7 +84,7 @@ public class EmitSound : MonoBehaviour
 
     private void SpawnProjectors()
     {
-        this.transform.rotation = new Quaternion(this.transform.rotation.x, 0, this.transform.rotation.z, 0);
+        this.transform.rotation = new Quaternion(this.transform.rotation.x, 3, this.transform.rotation.z, 0);
         
         if(projector == null)
         {

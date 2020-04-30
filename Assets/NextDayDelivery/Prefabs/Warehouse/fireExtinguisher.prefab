@@ -148,13 +148,16 @@ MonoBehaviour:
   sphereRadius: 10
   layerMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 1024
   droopSound: {fileID: 8300000, guid: 257abf14ff170aa4db08b9552f943693, type: 3}
   origin: {x: 0, y: 0, z: 0}
   audioProjection: {fileID: 6437180791585075610, guid: bab044008985c19479ef268e10916ae1,
     type: 3}
   projector: {fileID: 0}
   timeStart: 3
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 257
 --- !u!82 &8434860127925127210
 AudioSource:
   m_ObjectHideFlags: 0
