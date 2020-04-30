@@ -50,4 +50,23 @@ public class StartGame : MonoBehaviour
             Input.GetMouseButtonDown(1);
 
     }
+    public void OnDefeat()
+    {
+        MonoBehaviour[] playerScripts = GameObject.Find("Player").GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in playerScripts)
+        {
+            script.enabled = true;
+        }
+        MonoBehaviour[] canvasScripts = GameObject.Find("Canvas").GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in canvasScripts)
+        {
+            script.enabled = true;
+        }
+
+        Camera.main.GetComponent<MouseLook>().enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Input.GetMouseButtonDown(1);
+        counter -= 1;
+    }
 }

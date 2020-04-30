@@ -15,16 +15,22 @@ public class Spawner : MonoBehaviour
     public int fail = 4;
     public GameObject note;
     private string[][] levels = new string[][] { new string[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p" },
-        new string[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p"},
-        new string[] { "2", "h", "r", "e", "k", "2" },
-        new string[] { "s", "h", "r", "e", "k", "3" },
-        new string[] { "s", "h", "r", "e", "k", "4" } }; //A multidimentional string array that's output by the spawner. The new[] before each array allows them to be of any length.
+        new string[] { "space","f", "u", "j", "a", "f", "j", "l", "space", "v", "r"},
+        new string[] { "v", "f", "f", "f", "h", "j","p", "q", "f", "m", "l", "e","u","m"},
+        new string[] { "e", "space","v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e"},
+        new string[] { "u", "space", "space", "u", "space", "u", "space", "q", "f", "j", "m", "v", "j", "p", "m"},
+        new string[] {"n","u","l","l"},
+        new string[] {"a", "v","j", "m", "r", "u", "f", "v", "z", "f", "j", "m", "a", "f", "v", "m", "l", "m"},
+        new string[] { "space","z", "f", "z", "v", "v", "m", "j", "l", "v", "r", "space", "space", "j", "l", "space", "q", "r", "space", "u", "p"} }; //A multidimentional string array that's output by the spawner.
 
-    private float[][] levelTimes = new float[][] { new float[] {3f,7f,2,3,3,3,2,2,2,3,9}, //Each number in this array represents the amount of time between each note. Each number is in seconds /10 - so 3 is 0.3 seconds.
-        new float[] {3f,7f,2,3,3,3,2,2,2,3,9},
-        new float[] {5f,2,1,7,5,2},
-        new float[] {5f,2,1,7,5},
-        new float[] {5f,2,1,7,5f} };
+    private float[][] levelTimes = new float[][] { new float[] {3f,7,16,13,9,13,4,11,10,10,10}, //Each number in this array represents the amount of time between each note. Each number is in seconds /10 - so 3 in this case is = 0.3 seconds.
+        new float[] {20f,7f,12,3,12,7,6,7,19,4,15,3},
+        new float[] {20f,3f,2,2,10,4,14,7,6,14,8,6,6,3},
+        new float[] {3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3},
+        new float[] {3f,6,6,6,7,8,18,6,8,4,7,5,13,4,3},
+        new float[] {1,1,1,1},
+        new float[] {6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f},
+        new float[] {1.5f,6,9,5,8,5,1,4,8,5,3,7,5,2.5f,6,4.5f,3,5,4,4,6,5} };
 
     void Awake()
     {
@@ -39,12 +45,12 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        UnityEngine.Debug.Log(level);
         Audiooo.setParameterByName("Success Level", fail);
         if (fail == 0)
         {
             Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             Audiooo.release();
+            GameObject.Find((level + 1).ToString()).GetComponent<StartGame>().OnDefeat();
             destroy = true;
         }
 
@@ -53,8 +59,12 @@ public class Spawner : MonoBehaviour
             Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             Audiooo.release();
             UnityEngine.Debug.Log("Congrats!"); //here use varying effects based off of the level value. EG if you beat level 1, then effect no 1 will happen which should be opening the door. Maybe create a nested array of effects like the level and timing arrays?
-            GameObject.Find("1").GetComponent<StartGame>().OnVictory(); //CHANGE THIS SO 1 IS EQUAL TO WHATEVER THE LEVEL VALUE IS!
+            GameObject.Find((level+1).ToString()).GetComponent<StartGame>().OnVictory(); //CHANGE THIS SO 1 IS EQUAL TO WHATEVER THE LEVEL VALUE IS!
             destroy = true;
+        }
+        if (counter == 1)
+        {
+            Audiooo.setPaused(false);
         }
     }
 
@@ -65,10 +75,6 @@ public class Spawner : MonoBehaviour
             if(counter >= 0)
             {
                 levelTimes[level][i] *= 0.1f;
-            }
-            if (counter == 1)
-            {
-                Audiooo.setPaused(false);
             }
             note.GetComponent<Keypress>().keyType = (levels[level][i]); //Sets the keytype of the note to the current item in the array
             Instantiate(note, gameObject.transform); //instantiates each note
