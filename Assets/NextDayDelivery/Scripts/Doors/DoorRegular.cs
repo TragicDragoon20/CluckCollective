@@ -25,7 +25,7 @@ public class DoorRegular : MonoBehaviour
             {
                 anim.SetBool("Open?", true);
                 Opened = true;
-                uielement.SetActive(true);
+                uielement.SetActive(false);
             }
             else
             {
