@@ -108,7 +108,7 @@ public class Leaning : MonoBehaviour
     {
         Debug.Log("Running");
         float t = 0;
-        while (t <= 1)
+        while (t <= 0.25f)
         {
             t += Time.deltaTime * speed;
             transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, camHeight, 0), t);
