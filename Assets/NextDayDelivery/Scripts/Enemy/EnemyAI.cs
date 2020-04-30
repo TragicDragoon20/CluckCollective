@@ -4,7 +4,6 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    protected Animator firingAnimation;
     [SerializeField]
     protected GameObject player;
     [SerializeField]
@@ -28,7 +27,7 @@ public class EnemyAI : MonoBehaviour
     protected int currentPatrolPoint;
     protected Rigidbody rb;
 
-    [Header("SHooting")]
+    [Header("Shooting")]
     [SerializeField]
     private LayerMask layerMask;
     [SerializeField]
@@ -37,6 +36,9 @@ public class EnemyAI : MonoBehaviour
     private float fireRate;
     private float nextTimeToFire = 0f;
     private Health health;
+
+    protected Animation firingAnimation;
+    protected bool canFireAnim = false;
 
     private FOVDetection fOVDetection;
 
@@ -60,7 +62,7 @@ public class EnemyAI : MonoBehaviour
         health = player.GetComponent<Health>();
         particleFire = this.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
         particleSmoke = this.gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
-        firingAnimation = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        firingAnimation = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animation>();
 
     }
 
@@ -76,32 +78,44 @@ public class EnemyAI : MonoBehaviour
         {
             default:
             case State.Patrol:
+                canFireAnim = false;
                 Patrol();
                 PlayerInSight();
                 break;
             case State.ChaseTarget:
+                canFireAnim = false;
                 FollowPlayer();
                 break;
             case State.TargetLost:
+                canFireAnim = false;
                 PlayerLost();
                 break;
             case State.Sound:
+                canFireAnim = false;
                 GoToSound();
                 break;
             case State.LostRotation:
+                canFireAnim = false;
                 LostRotation();
                 break;
             case State.ShootTarget:
+                canFireAnim = false;
                 ShootTarget();
                 break;
         }
         if(state != State.Patrol)
         {
-            firingAnimation.SetBool("Open", true);
+            if (canFireAnim)
+            {
+                firingAnimation.Play("Close");
+            }
         }
         else
         {
-            firingAnimation.SetBool("Open", false);
+            if (canFireAnim)
+            {
+                firingAnimation.Play("Open");
+            }
         }
     }
 
@@ -109,6 +123,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (fOVDetection.isInFov)
         {
+            canFireAnim = true;
             state = State.ChaseTarget;
         }
     }
@@ -162,6 +177,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (lostSearchTime <= 0)
         {
+            canFireAnim = true;
             state = State.Patrol;
         }
         else
