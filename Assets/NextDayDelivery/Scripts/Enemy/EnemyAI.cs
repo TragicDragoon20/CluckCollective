@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    protected Animator firingAnimation;
     [SerializeField]
     protected GameObject player;
     [SerializeField]
@@ -59,6 +60,7 @@ public class EnemyAI : MonoBehaviour
         health = player.GetComponent<Health>();
         particleFire = this.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
         particleSmoke = this.gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+        firingAnimation = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
 
     }
 
@@ -92,6 +94,14 @@ public class EnemyAI : MonoBehaviour
             case State.ShootTarget:
                 ShootTarget();
                 break;
+        }
+        if(state != State.Patrol)
+        {
+            firingAnimation.SetBool("Open", true);
+        }
+        else
+        {
+            firingAnimation.SetBool("Open", false);
         }
     }
 
