@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class DroppingObjects : MonoBehaviour
 {
+    public bool canDrop;
     private Rigidbody rb;
-    [SerializeField]
-    private bool canDrop;
     // Start is called before the first frame update
     void Start()
     {

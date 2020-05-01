@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    public ShutterDoor shutter;
     public DoorRegular regular;
+    public DroppingObjects light;
+    public ShutterDoor shutter;
     public bool activate = false;
 
     void Update()
@@ -20,6 +21,11 @@ public class Button : MonoBehaviour
             if (shutter != null)
             {
                 shutter.open();
+            }
+
+            if (light != null)
+            {
+                light.canDrop = true;
             }
         }
     }
