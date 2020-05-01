@@ -11,6 +11,8 @@ public class PlayerPush : MonoBehaviour
     [SerializeField]
     private AudioClip pushCrate;
 
+    public bool playing = false;
+
     private void Awake()
     {
         crate = this.GetComponent<AudioSource>();
@@ -31,16 +33,16 @@ public class PlayerPush : MonoBehaviour
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && (!playing))
         {
-            crate.PlayOneShot(pushCrate, 0.05f);
+            playing = true;
+            crate.Play();
         }
-        if(Input.GetKeyUp(KeyCode.Mouse0))
+        if(Input.GetKeyUp(KeyCode.Mouse0) && (playing))
         {
             crate.Stop();
+            playing = false;
         }
-
-
 
         body.velocity = pushDir * pushSpeed;
     }
