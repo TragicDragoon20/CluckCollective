@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using FMOD;
+//using FMOD;
 using System;
 using UnityEditor;
 
@@ -37,34 +37,34 @@ public class Spawner : MonoBehaviour
 
         level = GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuHandler>().e;
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
-        Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-        Audiooo.setParameterByName("Section", level+1);
-        Audiooo.start();
-        Audiooo.setPaused(true);
+        //Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
+        //Audiooo.setParameterByName("Section", level+1);
+        //Audiooo.start();
+        //Audiooo.setPaused(true);
     }
 
     void Update()
     {
-        Audiooo.setParameterByName("Success Level", fail);
+        //Audiooo.setParameterByName("Success Level", fail);
         if (fail == 0)
         {
-            Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            Audiooo.release();
+           // Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            //Audiooo.release();
             GameObject.Find((level + 1).ToString()).GetComponent<StartGame>().OnDefeat();
             destroy = true;
         }
 
         if (counter == levels[level].Length)
         {
-            Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            Audiooo.release();
+            //Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            //Audiooo.release();
             UnityEngine.Debug.Log("Congrats!"); //here use varying effects based off of the level value. EG if you beat level 1, then effect no 1 will happen which should be opening the door. Maybe create a nested array of effects like the level and timing arrays?
             GameObject.Find((level+1).ToString()).GetComponent<StartGame>().OnVictory(); //CHANGE THIS SO 1 IS EQUAL TO WHATEVER THE LEVEL VALUE IS!
             destroy = true;
         }
         if (counter == 1)
         {
-            Audiooo.setPaused(false);
+            //Audiooo.setPaused(false);
         }
     }
 

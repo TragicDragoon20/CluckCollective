@@ -6,9 +6,13 @@ public class ObjectPushed : MonoBehaviour
 {
     void OnCollisionStay(Collision other)
     {
+       
+        
+
         if (Input.GetKey(KeyCode.Mouse0))
         {
             push();
+
         }
         else
         {
@@ -19,16 +23,20 @@ public class ObjectPushed : MonoBehaviour
     void OnCollisionExit(Collision other)
     {
         noPush();
+
     }
 
     private void push()
     {
         //Debug.Log("Sucess");
         gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+       
+
     }
 
     private void noPush()
     {
         gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        
     }
 }
