@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class EmitSound : MonoBehaviour
@@ -16,7 +17,9 @@ public class EmitSound : MonoBehaviour
     public Vector3 origin;
     private Vector3 velocity;
 
-    private EnemyAI enemy;
+    private PatrolAI patrolEnemy;
+    private StationaryAI stationaryEnemy;
+
     private FOVDetection fOVDetection;
     private ObjPickUp objPickUp;
 
@@ -66,8 +69,9 @@ public class EmitSound : MonoBehaviour
     {
         if (objPickUp.wasThrown)
         {
-            if (Physics.Raycast(transform.position, -Vector3.up, 1f))
+            if (Physics.Raycast(transform.position, -Vector3.up, .5f))
             {
+                audioSource.PlayOneShot(droopSound);
                 if (velocity == Vector3.zero)
                 {
                     GetEnemiesInRange();
@@ -82,7 +86,7 @@ public class EmitSound : MonoBehaviour
         }
     }
 
-    private void SpawnProjectors()
+    /**private void SpawnProjectors()
     {
         this.transform.rotation = new Quaternion(this.transform.rotation.x, 3, this.transform.rotation.z, 0);
         
@@ -90,9 +94,7 @@ public class EmitSound : MonoBehaviour
         {
             Debug.Log("SpawnProjector");
             projector = Instantiate(audioProjection, this.transform.position, Quaternion.Euler(90f, 0f, 0f));
-            projector.GetComponent<Projector>().orthographicSize = sphereRadius;
-            audioSource.Play();
-          
+            projector.GetComponent<Projector>().orthographicSize = sphereRadius;      
         }
         else
         {
@@ -100,28 +102,45 @@ public class EmitSound : MonoBehaviour
         }
         timeRemaining = timeStart;
         timerRunning = true;
-        
-
     }
+    **/
+
     private void GetEnemiesInRange()
     {
-        SpawnProjectors();
+        //SpawnProjectors();
         Collider[] hits = Physics.OverlapSphere(origin, sphereRadius, layerMask, QueryTriggerInteraction.UseGlobal);
         
         int i = 0;
         while (i < hits.Length)
         {
-            if (hits[i].gameObject.GetComponent<EnemyAI>() != null)
+            if (hits[i].gameObject.GetComponent<PatrolAI>() != null)
             {
 
-                enemy = hits[i].gameObject.GetComponent<EnemyAI>();
+                patrolEnemy = hits[i].gameObject.GetComponent<PatrolAI>();
                 fOVDetection = hits[i].gameObject.GetComponent<FOVDetection>();
-                if (enemy.state != EnemyAI.State.ChaseTarget)
+                if (patrolEnemy.state != PatrolAI.State.ChaseTarget)
                 {
-                    enemy.state = EnemyAI.State.Sound;
+                    patrolEnemy.state = PatrolAI.State.Sound;
                     origin = this.transform.position;
                     fOVDetection.playerLastKnownPos = origin;
                     fOVDetection.playerLastKnownPos.y += 1;
+                    Debug.Log("Done");
+                }
+
+            }
+            if (hits[i].gameObject.GetComponent<StationaryAI>() != null)
+            {
+
+                stationaryEnemy = hits[i].gameObject.GetComponent<StationaryAI>();
+                fOVDetection = hits[i].gameObject.GetComponent<FOVDetection>();
+                if (stationaryEnemy.state != StationaryAI.State.ChaseTarget)
+                {
+                    stationaryEnemy.state = StationaryAI.State.Sound;
+                    origin = this.transform.position;
+                    fOVDetection.playerLastKnownPos = origin;
+                    fOVDetection.playerLastKnownPos.y += 1;
+                    Debug.Log("Done");
+
                 }
 
             }
