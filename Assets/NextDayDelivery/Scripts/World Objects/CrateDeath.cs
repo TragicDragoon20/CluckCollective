@@ -13,9 +13,9 @@ public class CrateDeath : MonoBehaviour
 
     void Start()
     {
-        colliderSize = new Vector3(this.transform.localScale.x, this.transform.localScale.y + .5f, this.transform.localScale.z);
+        colliderSize = new Vector3(this.transform.localScale.x, this.transform.localScale.y + 1f, this.transform.localScale.z);
         rb = this.GetComponent<Rigidbody>();
-        explosion = this.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
+        explosion = this.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
     }
 
     private void FixedUpdate()
