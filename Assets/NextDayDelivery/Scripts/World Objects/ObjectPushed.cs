@@ -5,10 +5,7 @@ using UnityEngine;
 public class ObjectPushed : MonoBehaviour
 {
     void OnCollisionStay(Collision other)
-    {
-       
-        
-
+    {   
         if (Input.GetKey(KeyCode.Mouse0))
         {
             push();
