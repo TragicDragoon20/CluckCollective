@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 3774435094560430722}
   - component: {fileID: 3774435094563822242}
   - component: {fileID: 3774435094562855010}
+  - component: {fileID: 4202399251294968085}
   m_Layer: 0
   m_Name: wall_3x3_single_trimmed1
   m_TagString: Untagged
@@ -154,6 +155,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4202399251294968085
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3774435094560589474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 6f627d40ac2477c4f9ac859754a5ec1a, type: 3}
 --- !u!1 &3774435094560589476
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +178,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3774435094560430724}
-  - component: {fileID: 4627648854589906838}
   m_Layer: 0
   m_Name: wall_diagonal_trimmed
   m_TagString: Untagged
@@ -187,17 +201,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &4627648854589906838
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3774435094560589476}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
