@@ -27,6 +27,12 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //James secret
+        if(Input.GetKey(KeyCode.M))
+        {
+            this.transform.position = new Vector3(-100, 25, 0);
+        }
+
         //Checks to see if player is crouching, adjusts speed to match.
         if ((Input.GetKey(KeyCode.LeftShift)) && (!crouched.crouched))
         {
