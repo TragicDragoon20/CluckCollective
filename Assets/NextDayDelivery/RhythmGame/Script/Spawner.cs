@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class Spawner : MonoBehaviour
 {
-    FMOD.Studio.EventInstance Audiooo;
+    //FMOD.Studio.EventInstance Audiooo;
     public int level;
     public bool destroy = false;
     public int counter = 0;
@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour
         {
            // Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             //Audiooo.release();
-            GameObject.Find((level + 1).ToString()).GetComponent<StartGame>().OnDefeat();
+            GameObject.Find((level+1).ToString()).GetComponent<StartGame>().OnDefeat();
             destroy = true;
         }
 
