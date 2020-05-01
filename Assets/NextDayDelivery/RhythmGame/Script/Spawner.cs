@@ -20,8 +20,9 @@ public class Spawner : MonoBehaviour
         new string[] { "e", "space","v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e"},
         new string[] { "u", "space", "space", "u", "space", "u", "space", "q", "f", "j", "m", "v", "j", "p", "m"},
         new string[] {"n","u","l","l"},
-        new string[] {"a", "v","j", "m", "r", "u", "f", "v", "z", "f", "j", "m", "a", "f", "v", "m", "l", "m"},
-        new string[] { "space","z", "f", "z", "v", "v", "m", "j", "l", "v", "r", "space", "space", "j", "l", "space", "q", "r", "space", "u", "p"} }; //A multidimentional string array that's output by the spawner.
+        new string[] { "space","z", "f", "z", "v", "v", "m", "j", "l", "v", "r", "space", "space", "j", "l", "space", "q", "r", "space", "u", "p"},
+        new string[] {"a", "v","j", "m", "r", "u", "f", "v", "z", "f", "j", "m", "a", "f", "v", "m", "l", "m"} };
+         //A multidimentional string array that's output by the spawner.
 
     private float[][] levelTimes = new float[][] { new float[] {3f,7,16,13,9,13,4,11,10,10,10}, //Each number in this array represents the amount of time between each note. Each number is in seconds /10 - so 3 in this case is = 0.3 seconds.
         new float[] {20f,7f,12,3,12,7,6,7,19,4,15,3},
@@ -29,8 +30,8 @@ public class Spawner : MonoBehaviour
         new float[] {3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3,3,4.85f,2,3},
         new float[] {3f,6,6,6,7,8,18,6,8,4,7,5,13,4,3},
         new float[] {1,1,1,1},
-        new float[] {6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f},
-        new float[] {1.5f,6,9,5,8,5,1,4,8,5,3,7,5,2.5f,6,4.5f,3,5,4,4,6,5} };
+        new float[] {1.5f,6,9,5,8,5,1,4,8,5,3,7,5,2.5f,6,4.5f,3,5,4,4,6,5},
+        new float[] {6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f, 6.5f}};
 
     void Awake()
     {
