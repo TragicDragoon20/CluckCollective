@@ -41,7 +41,10 @@ public class CrateDeath : MonoBehaviour
                 explosion.transform.position = overlaps[i].transform.position;
                 Destroy(overlaps[i].gameObject);
                 explosion.Play();
-                lightSource.enabled = false;
+                if(lightSource != null)
+                {
+                    lightSource.enabled = false;
+                }
                 Debug.Log("dead");
             }
         }
