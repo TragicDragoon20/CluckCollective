@@ -8,15 +8,21 @@ public class PlayerPush : MonoBehaviour
     private float pushSpeed = 4;
 
     AudioSource crate;
-    [SerializeField]
-    private AudioClip pushCrate;
 
     public bool playing = false;
 
     private void Awake()
     {
         crate = this.GetComponent<AudioSource>();
-        //crate.clip = pushCrate;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            crate.Stop();
+            playing = false;
+        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -37,11 +43,6 @@ public class PlayerPush : MonoBehaviour
         {
             playing = true;
             crate.Play();
-        }
-        if(Input.GetKeyUp(KeyCode.Mouse0) && (playing))
-        {
-            crate.Stop();
-            playing = false;
         }
 
         body.velocity = pushDir * pushSpeed;
