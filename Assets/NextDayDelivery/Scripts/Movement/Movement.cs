@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         //James secret
-        if(Input.GetKey(KeyCode.M))
+        if((Input.GetKey(KeyCode.J)) && (Input.GetKey(KeyCode.M)) && (Input.GetKey(KeyCode.H)))
         {
             this.transform.position = new Vector3(-100, 25, 0);
         }
