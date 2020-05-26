@@ -5,12 +5,13 @@ using System.Runtime.InteropServices;
 
 public class StartGame : MonoBehaviour
 {
-    private int counter = 0;
+    public int counter = 0;
     public Canvas menu;
     void Interact()
     {
         if(counter == 0)
         {
+            menu.GetComponent<MenuHandler>().attatchedTerminal = this.name.ToString();
             MonoBehaviour[] playerScripts = GameObject.Find("Player").GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour script in playerScripts)
             {
@@ -22,7 +23,6 @@ public class StartGame : MonoBehaviour
                 script.enabled = false;
             }
 
-            //Insert way to turn off interact script, freeze wasd movement and stop enemy AI. Re-enable AI once game starts and everything else once game ends. Do this using the spawner script
             Camera.main.GetComponent<MouseLook>().enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -30,43 +30,6 @@ public class StartGame : MonoBehaviour
             counter += 1;
         }
     }
-    public void OnVictory()
-    {
-            MonoBehaviour[] playerScripts = GameObject.Find("Player").GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour script in playerScripts)
-            {
-                script.enabled = true;
-            }
-            MonoBehaviour[] canvasScripts = GameObject.Find("Canvas").GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour script in canvasScripts)
-            {
-                script.enabled = true;
-            }
 
-            Camera.main.GetComponent<MouseLook>().enabled = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            this.GetComponent<Button>().activate = true;
-            Cursor.visible = false;
-            Input.GetMouseButtonDown(1);
 
-    }
-    public void OnDefeat()
-    {
-        MonoBehaviour[] playerScripts = GameObject.Find("Player").GetComponents<MonoBehaviour>();
-        foreach (MonoBehaviour script in playerScripts)
-        {
-            script.enabled = true;
-        }
-        MonoBehaviour[] canvasScripts = GameObject.Find("Canvas").GetComponents<MonoBehaviour>();
-        foreach (MonoBehaviour script in canvasScripts)
-        {
-            script.enabled = true;
-        }
-
-        Camera.main.GetComponent<MouseLook>().enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Input.GetMouseButtonDown(1);
-        counter -= 1;
-    }
 }

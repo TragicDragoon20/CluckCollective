@@ -6,5 +6,5 @@ using UnityEngine;
 
 public class MenuHandler : MonoBehaviour
 {
-    public int e;
+    public string attatchedTerminal;
 }

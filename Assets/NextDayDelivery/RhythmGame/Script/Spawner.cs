@@ -8,11 +8,11 @@ using UnityEditor;
 
 public class Spawner : MonoBehaviour
 {
-    FMOD.Studio.EventInstance Audiooo;
-    public int level;
-    public bool destroy = false;
+    //FMOD.Studio.EventInstance Audiooo;
+    public int level = 99;
     public int counter = 0;
     public int fail = 4;
+    public string terminal;
     public GameObject note;
     private string[][] levels = new string[][] { new string[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p" },
         new string[] { "space","f", "u", "j", "a", "f", "j", "l", "space", "v", "r"},
@@ -35,38 +35,74 @@ public class Spawner : MonoBehaviour
 
     void Awake()
     {
-
-        level = GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuHandler>().e;
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
-        Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-        Audiooo.setParameterByName("Section", level + 1);
-        Audiooo.start();
-        Audiooo.setPaused(true);
-        Audiooo.setVolume(0.1f);
+        //Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
+        //Audiooo.setParameterByName("Section", level + 1);
+        //Audiooo.start();
+        //Audiooo.setPaused(true);
+        //Audiooo.setVolume(0.1f);
     }
 
     void Update()
     {
-        Audiooo.setParameterByName("Success Level", fail);
-        if (fail == 0)
+        if (level != 99)
         {
-            Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            Audiooo.release();
-            GameObject.Find((level + 1).ToString()).GetComponent<StartGame>().OnDefeat();
-            destroy = true;
-        }
+            //Audiooo.setParameterByName("Success Level", fail);
+            if (fail == 0)
+            {
+                //Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                //Audiooo.release();
+                OnDefeat();
+                GameObject.Find("HackHandler(Clone)").GetComponent<MinigameHandler>().destroy = true;
+            }
 
-        if (counter == levels[level].Length)
-        {
-            Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            Audiooo.release();
-            UnityEngine.Debug.Log("Congrats!"); //here use varying effects based off of the level value. EG if you beat level 1, then effect no 1 will happen which should be opening the door. Maybe create a nested array of effects like the level and timing arrays?
-            GameObject.Find((level + 1).ToString()).GetComponent<StartGame>().OnVictory(); //CHANGE THIS SO 1 IS EQUAL TO WHATEVER THE LEVEL VALUE IS!
-            destroy = true;
+            if (counter == levels[level].Length)
+            {
+                //Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                //Audiooo.release();
+                UnityEngine.Debug.Log("Congrats!"); //here use varying effects based off of the level value. EG if you beat level 1, then effect no 1 will happen which should be opening the door. Maybe create a nested array of effects like the level and timing arrays?
+                OnVictory();
+                GameObject.Find("HackHandler(Clone)").GetComponent<MinigameHandler>().destroy = true;
+            }
+            if (counter == 1)
+            {
+                //Audiooo.setPaused(false);
+            }
         }
-        if (counter == 1)
+    }
+
+    public void OnVictory()
+    {
+        ReturnToGame();
+        Camera.main.GetComponent<MouseLook>().enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        GameObject.Find(terminal).GetComponent<Button>().activate = true;
+        Cursor.visible = false;
+        Input.GetMouseButtonDown(1);
+
+    }
+
+    public void OnDefeat()
+    {
+        ReturnToGame();
+        Camera.main.GetComponent<MouseLook>().enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Input.GetMouseButtonDown(1);
+        GameObject.Find(terminal).GetComponent<StartGame>().counter = 0;
+    }
+
+    public void ReturnToGame()
+    {
+        MonoBehaviour[] playerScripts = GameObject.Find("Player").GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in playerScripts)
         {
-            Audiooo.setPaused(false);
+            script.enabled = true;
+        }
+        MonoBehaviour[] canvasScripts = GameObject.Find("Canvas").GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in canvasScripts)
+        {
+            script.enabled = true;
         }
     }
 

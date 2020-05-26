@@ -55,7 +55,7 @@ Canvas:
   m_RenderMode: 2
   m_Camera: {fileID: 1978251201939486639}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456f31d16eaf14e4481050d6c37180ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  e: 1
+  attatchedTerminal: 
 --- !u!1 &5421151474812084520
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameHandler: {fileID: 371910840530147014, guid: 162167df09ec47d4f894bacb4b5e03e2,
     type: 3}
+  levelToSpawn: 0
+  terminalName: 
 --- !u!1 &5966530027738181188
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +427,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1666903831372381959}
   - component: {fileID: 1978251201939486639}
-  - component: {fileID: 3419165666321435616}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -489,14 +490,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &3419165666321435616
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7359234924105417841}
-  m_Enabled: 1
 --- !u!1 &7709107441798314104
 GameObject:
   m_ObjectHideFlags: 0

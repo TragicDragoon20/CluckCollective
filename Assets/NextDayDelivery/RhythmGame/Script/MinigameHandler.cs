@@ -9,6 +9,7 @@ public class MinigameHandler : MonoBehaviour
     private Camera minigameCam;
     public GameObject minigame;
     public int spawnTotal = 1;
+    public bool destroy;
     Vector3 MGLocation;
 
     void Awake()
@@ -28,19 +29,17 @@ public class MinigameHandler : MonoBehaviour
 
     void Update()
     {
-        if (localMG != null)
-        {
             if (minigameCam.enabled != true)
             {
                 minigameCam.enabled = true;
             }
-            if (localMG.GetComponentInChildren<Spawner>().destroy == true)
+            if (destroy == true)
             {
-                localMG.GetComponentInChildren<Spawner>().destroy = false;
                 spawnTotal = 0;
                 minigameCam.enabled = false;
+                Destroy(minigameCam);
                 Destroy(localMG);
+                Destroy(gameObject);
             }
-        }
     }
 }

@@ -6,18 +6,21 @@ using UnityEngine;
 public class PushButton : MonoBehaviour
 {
     public GameObject minigameHandler;
+    public int levelToSpawn;
+    public string terminalName;
 
     public void CreateMinigame()
     {
-        GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuHandler>().e = Convert.ToInt32(gameObject.name);
+        //GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuHandler>().e = level;
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
     }
 
     IEnumerator LevelTiming()
     {
-
         yield return new WaitForSeconds(1);
         Instantiate(minigameHandler);
+        GameObject.Find("Spawner").GetComponent<Spawner>().terminal = this.GetComponentInParent<MenuHandler>().attatchedTerminal;
+        GameObject.Find("Spawner").GetComponent<Spawner>().level = levelToSpawn;
         Destroy(GameObject.FindGameObjectWithTag("Menu"));
     }
 
