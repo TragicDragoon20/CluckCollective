@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8201353052970867674}
   - component: {fileID: 6899238746141574224}
   m_Layer: 5
-  m_Name: Menu3Copy
+  m_Name: Menu3 - Light Drop
   m_TagString: Menu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

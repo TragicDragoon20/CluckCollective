@@ -18,8 +18,8 @@ public class PushButton : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Instantiate(minigameHandler);
-        GameObject.Find("Spawner").GetComponent<Spawner>().terminal = this.GetComponentInParent<MenuHandler>().attatchedTerminal;
         GameObject.Find("Spawner").GetComponent<Spawner>().level = levelToSpawn;
+        GameObject.Find("Spawner").GetComponent<Spawner>().terminal = this.GetComponentInParent<MenuHandler>().attatchedTerminal;
         Destroy(GameObject.FindGameObjectWithTag("Menu"));
     }
 

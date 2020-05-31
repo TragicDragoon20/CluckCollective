@@ -15,10 +15,11 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: D:\Documents\First Year uni\Next Day Delivery\cluck 3\cluckcollective\Hacking
-    Music Fmod\Hacking Music Fmod.fspro
-  SourceProjectPathUnformatted: Hacking Music Fmod\Hacking Music Fmod.fspro
-  SourceBankPathUnformatted: Hacking Music Fmod\Build
+  sourceProjectPath: D:\GitKraken\cluckcollective\Hacking Music Fmod\Hacking Music
+    Fmod\Hacking Music FMOD.fspro
+  SourceProjectPathUnformatted: Hacking Music Fmod\Hacking Music Fmod\Hacking Music
+    FMOD.fspro
+  SourceBankPathUnformatted: Hacking Music Fmod\Hacking Music Fmod\Build
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0

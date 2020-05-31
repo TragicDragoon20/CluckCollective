@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     public Material successMaterial;
     public Material failureMaterial;
     public GameObject note;
+    private int levelDelay = 0;
     private string[][] levels = new string[][] { new string[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p" },
         new string[] { "space","f", "u", "j", "a", "f", "j", "l", "space", "v", "r"},
         new string[] { "v", "f","h", "j","p", "q", "f", "m", "l", "e","u"},
@@ -39,8 +40,6 @@ public class Spawner : MonoBehaviour
     {
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
         Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-        Audiooo.setParameterByName("Section", level + 1);
-        Audiooo.start();
         Audiooo.setPaused(true);
         Audiooo.setVolume(0.1f);
     }
@@ -49,6 +48,12 @@ public class Spawner : MonoBehaviour
     {
         if (level != 99)
         {
+            if(levelDelay == 0)
+            {
+                Audiooo.setParameterByName("Section", level + 1);
+                Audiooo.start();
+                levelDelay = 1;
+            }
             Audiooo.setParameterByName("Success Level", fail);
             if (fail == 0)
             {
@@ -76,10 +81,10 @@ public class Spawner : MonoBehaviour
     public void OnVictory()
     {
         ReturnToGame();
+        GameObject.Find(terminal).transform.GetChild(0).GetComponent<MeshRenderer>().materials[1] = successMaterial;
         Camera.main.GetComponent<MouseLook>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         GameObject.Find(terminal).GetComponent<Button>().activate = true;
-        GameObject.Find(terminal).transform.GetChild(0).GetComponent<MeshRenderer>().materials[1] = successMaterial;
         Cursor.visible = false;
         Input.GetMouseButtonDown(1);
 
@@ -88,9 +93,9 @@ public class Spawner : MonoBehaviour
     public void OnDefeat()
     {
         ReturnToGame();
+        GameObject.Find(terminal).transform.GetChild(0).GetComponent<MeshRenderer>().materials[1] = failureMaterial;
         Camera.main.GetComponent<MouseLook>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
-        GameObject.Find(terminal).transform.GetChild(0).GetComponent<MeshRenderer>().materials[1] = failureMaterial;
         Cursor.visible = false;
         Input.GetMouseButtonDown(1);
         GameObject.Find(terminal).GetComponent<StartGame>().counter = 0;
