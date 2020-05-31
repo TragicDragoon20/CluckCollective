@@ -9,10 +9,7 @@ TagManager:
   - RhythmFail
   - RhythmHandler
   - Menu
-  - 1
-  - 2
-  - 3
-  - 4
+  - EarlyNote
   layers:
   - Default
   - TransparentFX

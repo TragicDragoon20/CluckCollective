@@ -23,14 +23,14 @@ public class Climb : MonoBehaviour
             if(atBottom)
             {
                 currentPosition = player.transform;
-                player.transform.position = Vector3.Lerp(currentPosition.position, top.transform.position, climbSpeed);
+                player.transform.position = top.transform.position;
                 atBottom = false;
             }
 
             if(atTop)
             {
                 currentPosition = player.transform;
-                player.transform.position = Vector3.Lerp(currentPosition.position, top.transform.position, climbSpeed);
+                player.transform.position = bottom.transform.position;
                 atTop = false;
             }
             

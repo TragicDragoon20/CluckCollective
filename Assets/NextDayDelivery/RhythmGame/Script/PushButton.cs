@@ -11,7 +11,6 @@ public class PushButton : MonoBehaviour
 
     public void CreateMinigame()
     {
-        //GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuHandler>().e = level;
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
     }
 
