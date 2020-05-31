@@ -8,9 +8,13 @@ public class Climb : MonoBehaviour
 
     public GameObject bottom;
     public GameObject top;
+    public Transform currentPosition;
 
     public bool atBottom = false;
     public bool atTop = false;
+
+    [SerializeField]
+    private float climbSpeed = 0.25f;
 
     private void Update()
     {
@@ -18,13 +22,15 @@ public class Climb : MonoBehaviour
         {
             if(atBottom)
             {
-                player.transform.position = top.transform.position;
+                currentPosition = player.transform;
+                player.transform.position = Vector3.Lerp(currentPosition.position, top.transform.position, climbSpeed);
                 atBottom = false;
             }
 
             if(atTop)
             {
-                player.transform.position = bottom.transform.position;
+                currentPosition = player.transform;
+                player.transform.position = Vector3.Lerp(currentPosition.position, top.transform.position, climbSpeed);
                 atTop = false;
             }
             
