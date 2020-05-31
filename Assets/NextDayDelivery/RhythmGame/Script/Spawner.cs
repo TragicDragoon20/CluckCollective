@@ -17,10 +17,10 @@ public class Spawner : MonoBehaviour
     public Material failureMaterial;
     public GameObject note;
     private int levelDelay = 0;
-    private string[][] levels = new string[][] { new string[] { "z","space", "v", "space", "f", "space", "j", "space", "u", "space", "p" },
-        new string[] { "space","f", "u", "j", "a", "f", "j", "l", "space", "v", "r"},
-        new string[] { "v", "f","h", "j","p", "q", "f", "m", "l", "e","u"},
-        new string[] { "e", "space","v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space", "v", "space", "e", "space"},
+    private string[][] levels = new string[][] { new string[] { "w","p", "space", "w", "p", "space", "d", "p", "d", "space", "p" },
+        new string[] { "d","p", "l", "p", "w", "d", "l", "p", "space", "w", "p"},
+        new string[] { "p", "p","l", "d","p", "w", "d", "l", "d", "w","p"},
+        new string[] { "e", "l","space", "p", "d", "space", "w", "p", "space", "l", "w", "p", "d", "space", "w", "d", "p", "l", "space", "p", "d", "l"},
         new string[] { "u", "space", "space", "u", "space", "u", "space", "q", "f", "j", "m", "v", "j", "p", "m"},
         new string[] {"n","u","l","l"},
         new string[] { "space","z", "f", "z", "v", "v", "m", "j", "l", "v", "r", "space", "space", "j", "l", "space", "q", "r", "space", "u", "p"},

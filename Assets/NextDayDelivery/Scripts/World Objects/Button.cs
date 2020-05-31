@@ -13,6 +13,7 @@ public class Button : MonoBehaviour
     {
         if (activate == true)
         {
+            //someone add the terminal change to success screen here
             if (regular != null)
             {
                 regular.Locked = false;
