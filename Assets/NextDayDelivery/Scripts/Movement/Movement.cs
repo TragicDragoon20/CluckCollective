@@ -21,6 +21,9 @@ public class Movement : MonoBehaviour
     public float groundDistance = 0f;
     public LayerMask groundMask;
 
+    [Header("Climbing?")]
+    public bool enabledGravity = true;
+
     Vector3 velocity;
     public bool isGrounded;
 
@@ -63,7 +66,10 @@ public class Movement : MonoBehaviour
         //Controls player fall speed. 
         velocity.y += gravity * Time.deltaTime;
 
-        controller.Move(velocity * Time.deltaTime);
+        if (enabledGravity)
+        {
+            controller.Move(velocity * Time.deltaTime);
+        }
     }
 
 }
