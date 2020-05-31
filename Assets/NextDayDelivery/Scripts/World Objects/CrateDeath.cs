@@ -11,13 +11,15 @@ public class CrateDeath : MonoBehaviour
     private Quaternion orientation = new Quaternion(0, 0, 0, 0);
     [SerializeField]
     private ParticleSystem explosion;
+    private AudioSource audioSource;
     [SerializeField]
-    private Light lightSource;
+    private AudioClip impact;
 
     void Start()
     {
         colliderSize = new Vector3(this.transform.localScale.x, this.transform.localScale.y + .5f, this.transform.localScale.z);
         rb = this.GetComponent<Rigidbody>();
+        audioSource = this.GetComponent<AudioSource>();
 
     }
 
@@ -41,10 +43,7 @@ public class CrateDeath : MonoBehaviour
                 explosion.transform.position = overlaps[i].transform.position;
                 Destroy(overlaps[i].gameObject);
                 explosion.Play();
-                if(lightSource != null)
-                {
-                    lightSource.enabled = false;
-                }
+                audioSource.PlayOneShot(impact, 0.7f);
                 Debug.Log("dead");
             }
         }
