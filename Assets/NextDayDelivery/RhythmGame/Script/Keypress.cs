@@ -43,14 +43,24 @@ public class Keypress : MonoBehaviour
     {
         if (Input.GetKey(keyType)) //and if the input key is equal to the keytype
         {
-            this.GetComponentInParent<Spawner>().counter++;
-            Destroy(gameObject); //destroy the note object
+            if (hit.CompareTag("EarlyNote"))
+            {
+                this.GetComponentInParent<Spawner>().counter++;
+                this.GetComponentInParent<Spawner>().fail--;
+                Destroy(gameObject);
+                Debug.Log(this.GetComponentInParent<Spawner>().fail);
+            }
+            else
+            {
+                this.GetComponentInParent<Spawner>().counter++;
+                Destroy(gameObject); //destroy the note object
+            }
         }
 
         if (hit.CompareTag("RhythmFail"))
         {
             this.GetComponentInParent<Spawner>().counter++;
-            this.GetComponentInParent<Spawner>().fail--;
+            this.GetComponentInParent<Spawner>().fail -= 2;
             Destroy(gameObject);
         }
     }
