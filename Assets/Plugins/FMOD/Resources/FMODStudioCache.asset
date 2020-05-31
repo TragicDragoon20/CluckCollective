@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114134676962327450}
-  - {fileID: 114295548764840918}
+  - {fileID: 114288560944062698}
+  - {fileID: 114484909600453476}
   EditorEvents:
-  - {fileID: 114835211604039368}
+  - {fileID: 114843866626200618}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 114295548764840918}
+  - {fileID: 114484909600453476}
   StringsBanks:
-  - {fileID: 114134676962327450}
-  stringsBankWriteTime: 637213152960000000
+  - {fileID: 114288560944062698}
+  stringsBankWriteTime: 637265186264570009
   cacheVersion: 3
 --- !u!114 &114004821938158668
 MonoBehaviour:
@@ -187,6 +187,26 @@ MonoBehaviour:
   Max: 21
   Default: 1
   Exists: 1
+--- !u!114 &114288560944062698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: C:\Users\tomsh\Desktop\Unity Projects\cluckcollective4\Hacking Music Fmod\Build\Desktop\Master.strings.bank
+  SubDir: 
+  lastModified: 637265186264570009
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 836
+  Exists: 1
 --- !u!114 &114295548764840918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +298,26 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 4
+  Exists: 1
+--- !u!114 &114484909600453476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: C:\Users\tomsh\Desktop\Unity Projects\cluckcollective4\Hacking Music Fmod\Build\Desktop\Master.bank
+  SubDir: 
+  lastModified: 637265186264550000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 6948960
   Exists: 1
 --- !u!114 &114489598966332748
 MonoBehaviour:
@@ -542,6 +582,31 @@ MonoBehaviour:
   Max: 5
   Default: 4
   Exists: 0
+--- !u!114 &114843866626200618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Audiooo
+  m_EditorClassIdentifier: 
+  Path: event:/Audiooo
+  guid: 258ff94987b1ea4c86635c5fe6007c8c
+  Banks:
+  - {fileID: 114484909600453476}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114864025731621064}
+  - {fileID: 114950075115652578}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 150009
 --- !u!114 &114855084299126674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,6 +624,23 @@ MonoBehaviour:
   Max: 16
   Default: 1
   Exists: 0
+--- !u!114 &114864025731621064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Audiooo/Section
+  m_EditorClassIdentifier: 
+  Name: Section
+  Min: 1
+  Max: 21
+  Default: 1
+  Exists: 1
 --- !u!114 &114920011376357648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,6 +674,23 @@ MonoBehaviour:
   Min: 1
   Max: 16
   Default: 1
+  Exists: 1
+--- !u!114 &114950075115652578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Audiooo/Success Level
+  m_EditorClassIdentifier: 
+  Name: Success Level
+  Min: 0
+  Max: 5
+  Default: 4
   Exists: 1
 --- !u!114 &114951840495553810
 MonoBehaviour:

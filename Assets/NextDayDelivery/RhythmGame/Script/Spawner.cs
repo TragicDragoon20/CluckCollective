@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class Spawner : MonoBehaviour
 {
-    //FMOD.Studio.EventInstance Audiooo;
+    FMOD.Studio.EventInstance Audiooo;
     public int level = 99;
     public int counter = 0;
     public int fail = 4;
@@ -36,37 +36,37 @@ public class Spawner : MonoBehaviour
     void Awake()
     {
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
-        //Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
-        //Audiooo.setParameterByName("Section", level + 1);
-        //Audiooo.start();
-        //Audiooo.setPaused(true);
-        //Audiooo.setVolume(0.1f);
+        Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
+        Audiooo.setParameterByName("Section", level + 1);
+        Audiooo.start();
+        Audiooo.setPaused(true);
+        Audiooo.setVolume(0.1f);
     }
 
     void Update()
     {
         if (level != 99)
         {
-            //Audiooo.setParameterByName("Success Level", fail);
+            Audiooo.setParameterByName("Success Level", fail);
             if (fail == 0)
             {
-                //Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                //Audiooo.release();
+                Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                Audiooo.release();
                 OnDefeat();
                 GameObject.Find("HackHandler(Clone)").GetComponent<MinigameHandler>().destroy = true;
             }
 
             if (counter == levels[level].Length)
             {
-                //Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                //Audiooo.release();
+                Audiooo.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                Audiooo.release();
                 UnityEngine.Debug.Log("Congrats!"); //here use varying effects based off of the level value. EG if you beat level 1, then effect no 1 will happen which should be opening the door. Maybe create a nested array of effects like the level and timing arrays?
                 OnVictory();
                 GameObject.Find("HackHandler(Clone)").GetComponent<MinigameHandler>().destroy = true;
             }
             if (counter == 1)
             {
-                //Audiooo.setPaused(false);
+                Audiooo.setPaused(false);
             }
         }
     }
