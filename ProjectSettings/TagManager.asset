@@ -10,6 +10,7 @@ TagManager:
   - RhythmHandler
   - Menu
   - EarlyNote
+  - Enemy
   layers:
   - Default
   - TransparentFX

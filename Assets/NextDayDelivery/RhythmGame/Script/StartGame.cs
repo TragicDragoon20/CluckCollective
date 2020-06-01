@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.InteropServices;
 
+
 public class StartGame : MonoBehaviour
 {
     public int counter = 0;
     public Canvas menu;
+    public List<GameObject> inactivenemies;
     void Interact()
     {
         if(counter == 0)
@@ -23,10 +25,17 @@ public class StartGame : MonoBehaviour
                 script.enabled = false;
             }
 
+            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+            {
+                inactivenemies.Add(enemy);
+                enemy.SetActive(false);
+            }
+
             Camera.main.GetComponent<MouseLook>().enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Instantiate(menu);
+            Debug.Log("inactive count: " + inactivenemies.Count);
             counter += 1;
         }
     }

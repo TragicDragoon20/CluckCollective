@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     public Material successMaterial;
     public Material failureMaterial;
     public GameObject note;
+
     private int levelDelay = 0;
     private string[][] levels = new string[][] { new string[] { "w","p", "space", "w", "p", "space", "d", "p", "d", "space", "p" },
         new string[] { "d","p", "l", "p", "w", "d", "l", "p", "space", "w", "p"},
@@ -70,6 +71,11 @@ public class Spawner : MonoBehaviour
                 UnityEngine.Debug.Log("Congrats!"); //here use varying effects based off of the level value. EG if you beat level 1, then effect no 1 will happen which should be opening the door. Maybe create a nested array of effects like the level and timing arrays?
                 OnVictory();
                 GameObject.Find("HackHandler(Clone)").GetComponent<MinigameHandler>().destroy = true;
+                foreach (GameObject enemy in GameObject.Find(terminal).GetComponent<StartGame>().inactivenemies)
+                {
+                    enemy.SetActive(true);
+                    
+                }
             }
             if (counter == 1)
             {
