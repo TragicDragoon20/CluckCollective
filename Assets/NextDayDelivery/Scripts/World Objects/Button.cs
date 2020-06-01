@@ -19,7 +19,9 @@ public class Button : MonoBehaviour
         {
             mats = terminal.GetComponent<Renderer>().materials;
             mats[1] = passmaterial;
+            Debug.Log("mats 1" + mats[1]);
             terminal.GetComponent<Renderer>().materials = mats;
+            Debug.Log("current mats" + terminal.GetComponent<Renderer>().materials);
 
             if (regular != null)
             {
@@ -34,6 +36,7 @@ public class Button : MonoBehaviour
             if (light != null)
             {
                 light.canDrop = true;
+                Debug.Log("dropping light");
             }
         }
     }

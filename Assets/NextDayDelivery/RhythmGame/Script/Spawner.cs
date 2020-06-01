@@ -98,6 +98,7 @@ public class Spawner : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Input.GetMouseButtonDown(1);
+        UnityEngine.Debug.Log("the terminal should be" + terminal);
         GameObject.Find(terminal).GetComponent<StartGame>().counter = 0;
     }
 
