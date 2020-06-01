@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
+    Material[] mats;
+
     public DoorRegular regular;
     public DroppingObjects light;
     public ShutterDoor shutter;
     public bool activate = false;
+    public Material passmaterial;
+    public GameObject terminal;
 
     void Update()
     {
         if (activate == true)
         {
-            //someone add the terminal change to success screen here
+            mats = terminal.GetComponent<Renderer>().materials;
+            mats[1] = passmaterial;
+            terminal.GetComponent<Renderer>().materials = mats;
+
             if (regular != null)
             {
                 regular.Locked = false;
