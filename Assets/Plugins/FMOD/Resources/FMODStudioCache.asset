@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114534911648301130}
-  - {fileID: 114293358200398408}
+  - {fileID: 114828447530947104}
+  - {fileID: 114908687451999686}
   EditorEvents:
-  - {fileID: 114002325137923240}
+  - {fileID: 114928505904120048}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 114293358200398408}
+  - {fileID: 114908687451999686}
   StringsBanks:
-  - {fileID: 114534911648301130}
-  stringsBankWriteTime: 637265740811722326
+  - {fileID: 114828447530947104}
+  stringsBankWriteTime: 637266133385763644
   cacheVersion: 3
 --- !u!114 &114002325137923240
 MonoBehaviour:
@@ -1249,6 +1249,44 @@ MonoBehaviour:
   - Name: Desktop
     Value: 836
   Exists: 1
+--- !u!114 &114809250048533048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Audiooo/Section
+  m_EditorClassIdentifier: 
+  Name: Section
+  Min: 1
+  Max: 21
+  Default: 1
+  Exists: 1
+--- !u!114 &114828447530947104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: C:\Users\tomsh\Desktop\Unity Projects\cluckcollective6\Hacking Music Fmod\Hacking
+    Music Fmod\Build\Desktop\Master.strings.bank
+  SubDir: 
+  lastModified: 637266133385763644
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 836
+  Exists: 1
 --- !u!114 &114835211604039368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,6 +1422,27 @@ MonoBehaviour:
   Max: 21
   Default: 1
   Exists: 1
+--- !u!114 &114908687451999686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: C:\Users\tomsh\Desktop\Unity Projects\cluckcollective6\Hacking Music Fmod\Hacking
+    Music Fmod\Build\Desktop\Master.bank
+  SubDir: 
+  lastModified: 637266133385753632
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 6948960
+  Exists: 1
 --- !u!114 &114919807336522972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,6 +1502,31 @@ MonoBehaviour:
   - Name: Desktop
     Value: 6948960
   Exists: 1
+--- !u!114 &114928505904120048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Audiooo
+  m_EditorClassIdentifier: 
+  Path: event:/Audiooo
+  guid: 258ff94987b1ea4c86635c5fe6007c8c
+  Banks:
+  - {fileID: 114908687451999686}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114809250048533048}
+  - {fileID: 114980335198544296}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 150009
 --- !u!114 &114940905004314358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,6 +1620,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 150009
+--- !u!114 &114980335198544296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Audiooo/Success Level
+  m_EditorClassIdentifier: 
+  Name: Success Level
+  Min: 0
+  Max: 5
+  Default: 4
+  Exists: 1
 --- !u!114 &114993666905274766
 MonoBehaviour:
   m_ObjectHideFlags: 0
