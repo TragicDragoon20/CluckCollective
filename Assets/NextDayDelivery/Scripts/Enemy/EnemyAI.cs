@@ -36,7 +36,9 @@ public class EnemyAI : MonoBehaviour
     private float fireRate;
     private float nextTimeToFire = 0f;
     private Health health;
-
+    [SerializeField]
+    protected AudioClip gunShot;
+    protected AudioSource audioSource;
     protected Animation firingAnimation;
 
     private FOVDetection fOVDetection;
@@ -55,7 +57,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-
+        audioSource = this.GetComponent<AudioSource>();
         agent = this.GetComponent<NavMeshAgent>();
         fOVDetection = this.GetComponent<FOVDetection>();
         rb = this.gameObject.GetComponent<Rigidbody>();
@@ -63,6 +65,7 @@ public class EnemyAI : MonoBehaviour
         particleFire = this.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
         particleSmoke = this.gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
         firingAnimation = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animation>();
+
     }
 
     private void Start()
@@ -210,6 +213,7 @@ public class EnemyAI : MonoBehaviour
                 if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, layerMask))
                 {
                     health.currentHealth -= damage;
+                    audioSource.PlayOneShot(gunShot);
                     particleSmoke.Play();
                     particleFire.Play();
                 }

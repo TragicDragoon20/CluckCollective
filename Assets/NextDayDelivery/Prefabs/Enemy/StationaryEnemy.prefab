@@ -189,6 +189,7 @@ MonoBehaviour:
     m_Bits: 512
   damage: 25
   fireRate: 1
+  gunShot: {fileID: 8300000, guid: 616c9799653d59e49b36e8888104571b, type: 3}
   state: 0
   layerMaskStationary:
     serializedVersion: 2
@@ -402,50 +403,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7304995367331962060}
     m_Modifications:
-    - target: {fileID: 100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Name
-      value: 1stFloorRobot
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100014, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100016, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100018, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -501,6 +458,50 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Name
+      value: 1stFloorRobot
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11100000, guid: 2faf3ed2208654d4294a8abc38e66f1e, type: 3}
       propertyPath: m_PlayAutomatically
