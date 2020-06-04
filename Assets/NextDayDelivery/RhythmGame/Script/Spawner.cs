@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour
                 levelDelay = 1;
             }
             Audiooo.setParameterByName("Success Level", fail);
-            if (fail == 0)
+            if (fail <= 0)
             {
                 Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 Audiooo.release();

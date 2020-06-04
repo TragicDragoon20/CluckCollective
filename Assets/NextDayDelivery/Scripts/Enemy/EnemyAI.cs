@@ -38,6 +38,8 @@ public class EnemyAI : MonoBehaviour
     private Health health;
     [SerializeField]
     protected AudioClip gunShot;
+    [SerializeField]
+    protected AudioClip playerHit;
     protected AudioSource audioSource;
     protected Animation firingAnimation;
 

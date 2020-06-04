@@ -92,6 +92,7 @@ public class Keypress : MonoBehaviour
             {
                 this.GetComponentInParent<Spawner>().counter++;
                 Destroy(gameObject); //destroy the note object
+                Debug.Log(this.GetComponentInParent<Spawner>().fail);
             }
         }
 
@@ -100,6 +101,7 @@ public class Keypress : MonoBehaviour
             this.GetComponentInParent<Spawner>().counter++;
             this.GetComponentInParent<Spawner>().fail -= 2;
             Destroy(gameObject);
+            Debug.Log(this.GetComponentInParent<Spawner>().fail);
         }
     }
 }
