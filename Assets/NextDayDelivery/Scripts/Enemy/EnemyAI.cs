@@ -216,6 +216,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     health.currentHealth -= damage;
                     audioSource.PlayOneShot(gunShot);
+                    audioSource.PlayOneShot(playerHit);
                     particleSmoke.Play();
                     particleFire.Play();
                 }

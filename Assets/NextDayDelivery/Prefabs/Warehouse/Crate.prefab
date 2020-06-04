@@ -156,6 +156,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   explosion: {fileID: 6683664248598259402}
+  impact: {fileID: 0}
 --- !u!1001 &1894762830417048129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,6 +168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047540646835361188, guid: 17ea1f165f1d20740bb895ee991423a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5955334375068077395, guid: 17ea1f165f1d20740bb895ee991423a7,
         type: 3}

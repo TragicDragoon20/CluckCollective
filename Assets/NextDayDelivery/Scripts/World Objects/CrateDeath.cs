@@ -42,7 +42,7 @@ public class CrateDeath : MonoBehaviour
             {
                 explosion.transform.position = overlaps[i].transform.position;
                 Destroy(overlaps[i].gameObject);
-                explosion.Play();
+                explosion.gameObject.SetActive(true);
                 audioSource.PlayOneShot(impact, 0.7f);
                 Debug.Log("dead");
             }
