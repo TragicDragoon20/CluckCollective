@@ -13,11 +13,11 @@ public class Keypress : MonoBehaviour
         new[] { "d", "f", "j", "p", " "},
         new[] { "q", "r", "u", "w"} };
 
-    public Color32 col_w = new Color32(0x73, 0xEF, 0x5E, 0xFF);
-    public Color32 col_d = new Color32(0xED, 0x5F, 0x5F, 0xFF);
-    public Color32 col_p = new Color32(0xBF, 0x5F, 0xED, 0xFF);
-    public Color32 col_l = new Color32(0x60, 0xC3, 0xEA, 0xFF);
-    public Color32 col_y = new Color32(0xED, 0xE6, 0x5F, 0xFF);
+    public Color32 col_w = InfoStorage.Instance.col_w;
+    public Color32 col_d = InfoStorage.Instance.col_d;
+    public Color32 col_p = InfoStorage.Instance.col_p;
+    public Color32 col_l = InfoStorage.Instance.col_l;
+    public Color32 col_y = InfoStorage.Instance.col_y;
 
     private void Start()
     {
