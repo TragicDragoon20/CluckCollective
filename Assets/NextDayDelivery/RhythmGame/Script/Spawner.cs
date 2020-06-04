@@ -43,6 +43,7 @@ public class Spawner : MonoBehaviour
         Audiooo = FMODUnity.RuntimeManager.CreateInstance("event:/Audiooo");
         Audiooo.setPaused(true);
         Audiooo.setVolume(0.1f);
+       
     }
 
     void Update()
@@ -56,7 +57,7 @@ public class Spawner : MonoBehaviour
                 levelDelay = 1;
             }
             Audiooo.setParameterByName("Success Level", fail);
-            if (fail <= 0)
+            if (fail <= -4)
             {
                 Audiooo.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 Audiooo.release();
@@ -72,7 +73,7 @@ public class Spawner : MonoBehaviour
                 OnVictory();
                 GameObject.Find("HackHandler(Clone)").GetComponent<MinigameHandler>().destroy = true;
 
-                SingletonClass.Instance.Drones.SetActive(true);
+                
 
             }
             if (counter == 1)
@@ -118,6 +119,8 @@ public class Spawner : MonoBehaviour
         {
             script.enabled = true;
         }
+
+        SingletonClass.Instance.Drones.SetActive(true);
     }
 
     IEnumerator LevelTiming() //Lanuches a time sensitive function
