@@ -35,11 +35,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float fireRate;
     private float nextTimeToFire = 0f;
+    private float fakeFire = 0f;
     private Health health;
     [SerializeField]
     protected AudioClip gunShot;
     [SerializeField]
     protected AudioClip playerHit;
+    [SerializeField]
+    protected AudioClip playerMiss;
     protected AudioSource audioSource;
     protected Animation firingAnimation;
 
@@ -221,6 +224,18 @@ public class EnemyAI : MonoBehaviour
                     particleFire.Play();
                 }
                 nextTimeToFire = Time.time + 1f / fireRate;
+            } else if (Time.time >= fakeFire)
+            {
+                //RaycastHit hit;
+
+                //if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, layerMask))
+                //{
+                    audioSource.PlayOneShot(gunShot);
+                    //audioSource.PlayOneShot(playerMiss);
+                    particleSmoke.Play();
+                    particleFire.Play();
+                //}
+                fakeFire = Time.time + (Random.Range(0.5f, 1.3f)) / fireRate;
             }
         }
     }

@@ -191,6 +191,7 @@ MonoBehaviour:
   fireRate: 1
   gunShot: {fileID: 8300000, guid: 616c9799653d59e49b36e8888104571b, type: 3}
   playerHit: {fileID: 8300000, guid: f2c6d7fa4cbad55489d2819c2e4d4e47, type: 3}
+  playerMiss: {fileID: 8300000, guid: 7634153cfe02880439c4992643f8f5d8, type: 3}
   state: 0
   layerMaskStationary:
     serializedVersion: 2
