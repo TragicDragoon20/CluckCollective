@@ -14,6 +14,12 @@ public class MainMenu : MonoBehaviour
     public void PlayGame ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        Time.timeScale = 1f;
+        
     }
     public void QuitGame ()
     {
