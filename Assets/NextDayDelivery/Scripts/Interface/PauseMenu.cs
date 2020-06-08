@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    public GameObject settingsMenuUI;
+
     // Update is called once per frame
     void Update()
     {
@@ -32,8 +34,12 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
 
         pauseMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+
+        Cursor.visible = false;
+
     }
     public void Awake()
     {
@@ -56,5 +62,19 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quitting...");
         Application.Quit();
+    }
+
+    public void Back()
+    {
+        Debug.Log("Back");
+        settingsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+    }
+
+    public void Settings()
+    {
+        Debug.Log("Settings");
+        pauseMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(true);
     }
 }
