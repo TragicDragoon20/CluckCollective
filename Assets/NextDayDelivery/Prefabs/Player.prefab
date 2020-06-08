@@ -78,6 +78,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  enabledGravity: 1
   isGrounded: 0
 --- !u!114 &1446650792666510098
 MonoBehaviour:
@@ -115,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushSpeed: 4
+  playing: 0
 --- !u!114 &343771729
 MonoBehaviour:
   m_ObjectHideFlags: 0

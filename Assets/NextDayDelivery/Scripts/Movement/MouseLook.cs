@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    [SerializeField]
-    private float mouseSensitivity = 100f;
+    public float mouseSensitivity = 100f;
 
     [Space]
     public bool canLook = true;
@@ -21,8 +20,9 @@ public class MouseLook : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void Update()
+    public void FixedUpdate()
     {
+
         if (canLook == true)
         {
             //Allows the player to look around with the mouse.
@@ -37,4 +37,6 @@ public class MouseLook : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
         }
     }
+
+
 }
