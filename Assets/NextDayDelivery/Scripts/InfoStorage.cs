@@ -21,4 +21,6 @@ public class InfoStorage : MonoBehaviour
     public Color32 col_p = new Color32(0xBF, 0x5F, 0xED, 0xFF);
     public Color32 col_l = new Color32(0x60, 0xC3, 0xEA, 0xFF);
     public Color32 col_y = new Color32(0xED, 0xE6, 0x5F, 0xFF);
+
+    public float sensitivity = 100f;
 }

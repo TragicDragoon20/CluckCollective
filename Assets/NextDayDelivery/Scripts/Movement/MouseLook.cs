@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity;
 
     [Space]
     public bool canLook = true;
@@ -15,6 +15,7 @@ public class MouseLook : MonoBehaviour
     float xRotation = 0f;
     void Start()
     {
+        mouseSensitivity = InfoStorage.Instance.sensitivity;
         //Locks cursor to screen centre. 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -41,6 +42,7 @@ public class MouseLook : MonoBehaviour
     public void OnSliderValueChanged(float value)
     {
         mouseSensitivity = value;
+        InfoStorage.Instance.sensitivity = value;
     }
 
 
