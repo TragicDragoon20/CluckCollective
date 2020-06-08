@@ -8,8 +8,6 @@ public class OnValueChangedText : MonoBehaviour
 {
     private Text ValueText;
 
-    public MouseLook sensitivity;
-
     private void Start()
     {
         ValueText = GetComponent<Text>();
@@ -18,6 +16,5 @@ public class OnValueChangedText : MonoBehaviour
     public void OnSliderValueChanged(float value)
     {
         ValueText.text = value.ToString("0");
-        sensitivity.mouseSensitivity = value;
     }
 }
