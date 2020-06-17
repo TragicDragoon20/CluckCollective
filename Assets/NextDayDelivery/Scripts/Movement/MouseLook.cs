@@ -13,12 +13,21 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
 
     float xRotation = 0f;
+
+    public bool inverted;
+
+    void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     void Start()
     {
         mouseSensitivity = InfoStorage.Instance.sensitivity;
+        inverted = InfoStorage.Instance.inverted;
         //Locks cursor to screen centre. 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     public void FixedUpdate()
@@ -26,11 +35,19 @@ public class MouseLook : MonoBehaviour
 
         if (canLook == true)
         {
-            //Allows the player to look around with the mouse.
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.fixedDeltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.fixedDeltaTime;
 
-            xRotation -= mouseY;
+            switch(inverted)
+            {
+                case true:
+                    xRotation += mouseY;
+                    break;
+                case false:
+                    xRotation -= mouseY;
+                    break;
+            }
+
             //Ensures that the player can only look up and down to a maximum of 90 degrees. 
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
@@ -45,5 +62,9 @@ public class MouseLook : MonoBehaviour
         InfoStorage.Instance.sensitivity = value;
     }
 
-
+    public void OnValueChanged(bool value)
+    {
+        inverted = value;
+        InfoStorage.Instance.inverted = value;
+    }
 }
