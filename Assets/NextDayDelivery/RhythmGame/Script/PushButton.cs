@@ -9,6 +9,14 @@ public class PushButton : MonoBehaviour
     public int levelToSpawn;
     public string terminalName;
 
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Return))
+        {
+            CreateMinigame();
+        }
+    }
+
     public void CreateMinigame()
     {
         StartCoroutine(LevelTiming()); //Allows the script to use WaitForSeconds
