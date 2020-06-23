@@ -7,11 +7,13 @@ public class PlayerCheck : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
+    [SerializedField]
+    private GameObject DeathScreen;
     private void Update()
     {
         if(player == null)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            DeathScreen.SetActive(true);
         }
     }
 }
