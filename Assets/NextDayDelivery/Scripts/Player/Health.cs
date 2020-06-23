@@ -29,6 +29,11 @@ public class Health : MonoBehaviour
         postPro.profile.TryGetSettings(out healthEffect);
         //healthEffect.intensity.value = 1;
         currentHealth = health;
+
+        Time.timeScale = 1f;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //deathScreen.SetActive(false);
     }
 
     // Update is called once per frame
