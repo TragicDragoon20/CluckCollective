@@ -7,7 +7,8 @@ public class PlayerCheck : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
-    [SerializedField]
+
+    [SerializeField]
     private GameObject DeathScreen;
     private void Update()
     {

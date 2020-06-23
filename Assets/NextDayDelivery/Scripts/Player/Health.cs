@@ -14,6 +14,10 @@ public class Health : MonoBehaviour
     public float currentHealth;
     [SerializeField]
     private GameObject canvas;
+
+    [SerializeField]
+    private GameObject deathScreen;
+
     private RawImage image;
     [SerializeField]
     private PostProcessVolume postPro;
@@ -53,8 +57,11 @@ public class Health : MonoBehaviour
     {
         if(currentHealth == 0)
         {
-            Destroy(this.gameObject);
-            
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            deathScreen.SetActive(true);
+
         }
         else if(currentHealth >= 0 & currentHealth <= 25)
         {

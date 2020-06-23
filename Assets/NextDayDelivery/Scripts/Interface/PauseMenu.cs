@@ -59,7 +59,7 @@ public class PauseMenu : MonoBehaviour
     public void Load2A()
     {
         Debug.Log("Loading...");
-        SceneManager.LoadScene("2A");
+        SceneManager.LoadScene("Level 2A");
     }
 
     public void QuitGame()
