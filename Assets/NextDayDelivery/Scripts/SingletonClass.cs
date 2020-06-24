@@ -11,7 +11,6 @@ public class SingletonClass : MonoBehaviour
         else Instance = this;
     }
     #endregion
-
     public GameObject Drones;
 
     public bool checkPointReached = false;

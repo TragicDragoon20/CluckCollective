@@ -27,7 +27,6 @@ public class Movement : MonoBehaviour
     Vector3 velocity;
     public bool isGrounded;
 
-    // Update is called once per frame
     void Update()
     {
         //James secret
