@@ -8,6 +8,11 @@ public class Key : MonoBehaviour
     public DoorRegular door;
     public GameObject uielement;
 
+    public void Start()
+    {
+
+    }
+
     public void Interact()
     {
         uielement.SetActive(true);

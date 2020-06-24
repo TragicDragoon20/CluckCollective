@@ -13,4 +13,14 @@ public class SingletonClass : MonoBehaviour
     #endregion
 
     public GameObject Drones;
+
+    public bool checkPointReached = false;
+    public bool keyPickedUp = false;
+
+    public bool droneOneKilled = false;
+    public bool droneTwoKilled = false;
+
+    public bool terminalOnePassed = false;
+    public bool terminalTwoPassed = false;
+
 }

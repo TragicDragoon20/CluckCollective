@@ -24,4 +24,5 @@ public class InfoStorage : MonoBehaviour
 
     public float sensitivity = 100f;
     public bool inverted = false;
+
 }
